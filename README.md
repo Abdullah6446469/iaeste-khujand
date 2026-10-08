@@ -4,7 +4,7 @@ An English-first informational website for the IAESTE Tajikistan Khujand Local C
 
 Live site: https://abdullah6446469.github.io/iaeste-khujand/
 
-The design follows an institutional IAESTE direction: white navigation, deep blue and teal colours, technical experience photography, clear student and partner information, an application guide and native FAQ accordions. Motion includes a gentle introductory photo zoom, section reveals, one-time network counters and hover transitions. The animation control remembers the preference locally and respects the system's reduced-motion setting.
+The design follows an institutional IAESTE direction: white navigation, deep blue and teal colours, technical experience photography, clear student and partner information, an application guide and native FAQ accordions. Motion includes a gentle introductory photo zoom, section reveals, one-time network counters and hover transitions. Animations respect the system's reduced-motion setting.
 
 Navigation and FAQs support keyboard use. Content remains readable without JavaScript. News and internship links point to official sources rather than presenting copied listings as a live feed. Network statistics are explicitly global IAESTE figures, sourced from the international homepage; they are not local branch statistics. There is no analytics, cookie banner, form backend or paid dependency.
 

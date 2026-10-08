@@ -6,13 +6,6 @@ const menuButton = document.querySelector(".menu-button");
 const nav = document.querySelector(".site-nav");
 const mobileLayout = window.matchMedia("(max-width: 960px)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const motionButton = document.querySelector(".motion-toggle");
-let motionPaused = false;
-try {
-  motionPaused = localStorage.getItem("iaeste-motion-paused") === "true";
-} catch (_) {
-  /* Storage is optional. */
-}
 
 function closeMenu(restoreFocus = false) {
   menuButton.setAttribute("aria-expanded", "false");
@@ -68,7 +61,7 @@ function finishCounters() {
   activeCounters.clear();
 }
 function animateCount(element) {
-  if (motionPaused || reducedMotion.matches) return;
+  if (reducedMotion.matches) return;
   const target = Number(element.dataset.count);
   const suffix = element.dataset.suffix || "";
   let start;
@@ -88,35 +81,11 @@ function animateCount(element) {
   activeCounters.set(element, requestAnimationFrame(update));
 }
 function updateMotion() {
-  const off = motionPaused || reducedMotion.matches;
+  const off = reducedMotion.matches;
   root.classList.toggle("motion-off", off);
-  motionButton.setAttribute("aria-pressed", String(off));
-  motionButton.setAttribute(
-    "aria-label",
-    off ? "Turn animations on" : "Turn animations off",
-  );
-  motionButton.querySelector("span").textContent = off ? "off" : "on";
-  if (reducedMotion.matches) {
-    motionButton.disabled = true;
-    motionButton.title =
-      "Animations are off because your device prefers reduced motion.";
-  } else {
-    motionButton.disabled = false;
-    motionButton.removeAttribute("title");
-  }
   if (off) finishCounters();
 }
-root.classList.add("motion-ready");
 updateMotion();
-motionButton.addEventListener("click", () => {
-  motionPaused = !motionPaused;
-  try {
-    localStorage.setItem("iaeste-motion-paused", String(motionPaused));
-  } catch (_) {
-    /* Storage is optional. */
-  }
-  updateMotion();
-});
 reducedMotion.addEventListener("change", updateMotion);
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) finishCounters();

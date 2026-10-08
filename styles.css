@@ -69,7 +69,6 @@ img {
   outline-offset: 5px;
 }
 .hero :focus-visible,
-.utility-bar :focus-visible,
 .contact-section :focus-visible,
 .site-footer :focus-visible {
   outline-color: #b7e2f5;
@@ -106,72 +105,6 @@ img {
 }
 .skip-link:focus {
   transform: translateY(0);
-}
-.utility-bar {
-  color: #e0eef6;
-  background: var(--navy);
-  font-size: 12px;
-}
-.utility-inner {
-  min-height: 35px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-}
-.utility-divider {
-  opacity: 0.4;
-  margin-inline: 12px;
-}
-.utility-inner > div {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.utility-inner a {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-.utility-inner a:hover {
-  color: white;
-}
-.utility-inner .icon {
-  width: 13px;
-  height: 13px;
-}
-.language-label {
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-.language-label > span {
-  color: #b2c9d7;
-  font-weight: 400;
-}
-.motion-toggle {
-  display: none;
-  background: transparent;
-  color: #d6e7f0;
-  font-size: 11px;
-  padding: 3px 0;
-  align-items: center;
-  gap: 6px;
-}
-.motion-ready .motion-toggle {
-  display: flex;
-}
-.motion-toggle span {
-  font-weight: 600;
-  color: white;
-  padding: 0 5px;
-  border: 1px solid #ffffff40;
-  line-height: 1.5;
-  border-radius: 2px;
-}
-.motion-toggle:hover {
-  color: white;
 }
 .site-header {
   position: sticky;
@@ -1743,24 +1676,6 @@ h2 {
     padding: 14px 17px;
     font-size: 14px;
   }
-  .utility-inner > div {
-    gap: 18px;
-  }
-  .utility-inner > span {
-    font-size: 10px;
-  }
-  .utility-inner {
-    gap: 20px;
-  }
-  .utility-inner a {
-    font-size: 10px;
-  }
-  .motion-toggle {
-    font-size: 10px;
-  }
-  .language-label {
-    font-size: 10px;
-  }
   .hero-inner {
     min-height: 575px;
     padding-top: 54px;
@@ -2123,23 +2038,6 @@ h2 {
   }
   html {
     scroll-padding-top: 91px;
-  }
-  .utility-inner > span,
-  .utility-inner a {
-    display: none;
-  }
-  .utility-inner {
-    min-height: 29px;
-  }
-  .utility-inner > div {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .language-label {
-    margin-left: auto;
-  }
-  .utility-inner .language-label > span {
-    display: inline;
   }
   .header-inner {
     height: 77px;
