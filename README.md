@@ -4,13 +4,13 @@ An English-first informational website for the IAESTE Tajikistan Khujand Local C
 
 Live site: https://abdullah6446469.github.io/iaeste-khujand/
 
-The design pairs dark navy and electric blue with large editorial typography, a rotating canvas globe, scroll reveals, subtle photo parallax and responsive layouts. Audience tabs cover students, employers and incoming interns. The global motion control pauses animation, remembers the preference locally and respects the system's reduced-motion setting. The globe stops rendering while off screen or when the browser tab is hidden.
+The design follows an institutional IAESTE direction: white navigation, deep blue and teal colours, technical experience photography, clear student and partner information, an application guide and native FAQ accordions. Motion includes a gentle introductory photo zoom, section reveals, one-time network counters and hover transitions. The animation control remembers the preference locally and respects the system's reduced-motion setting.
 
-Navigation and tabs support keyboard use. Content remains readable without JavaScript. News and internship links point to official sources rather than presenting copied listings as a live feed. There is no analytics, cookie banner, form backend or paid dependency.
+Navigation and FAQs support keyboard use. Content remains readable without JavaScript. News and internship links point to official sources rather than presenting copied listings as a live feed. Network statistics are explicitly global IAESTE figures, sourced from the international homepage; they are not local branch statistics. There is no analytics, cookie banner, form backend or paid dependency.
 
 ## Edit and publish
 
-- Edit `index.html` for copy and links, `styles.css` for design, and `main.js` for navigation, tabs and animation.
+- Edit `index.html` for copy and links, `styles.css` for design, and `main.js` for navigation and animation.
 - The Khujand phone appears in `index.html`; verify it with the committee before changing it.
 - GitHub Pages publishes the `main` branch from the repository root. Pushing an update to `main` republishes the site.
 - A custom domain can be added later if the committee owns one. The default `github.io` address is free.
@@ -25,6 +25,8 @@ Navigation and tabs support keyboard use. Content remains readable without JavaS
 
 - `assets/iaeste-logo-blue.png`: IAESTE International's blue logo, sourced from https://iaeste.org/.
 - `assets/iaeste-logo-white.png`: IAESTE International's white logo, sourced from https://iaeste.org/.
+- `assets/international-exchange.webp`: the technical learning photograph from IAESTE International's homepage, https://iaeste.org/uploads/images/home_page_section/image/1/medium_2c4f8dda-c8ed-4057-9bbe-6f6791e3236a.jpg, converted to WebP.
+- `assets/practical-experience.webp`: the practical experience photograph from IAESTE International, https://iaeste.org/uploads/images/benefit/image/1/medium_abd9aa65-d139-4256-a744-92fe46659f8d.png, converted to WebP.
 - `assets/gallery-3.webp`: IAESTE Tajikistan's exchange group photo, https://www.iaeste.tj/images/gallery/webp/img3.webp.
 - `assets/gallery-2.webp`: IAESTE Tajikistan's community meal photo, https://www.iaeste.tj/images/gallery/webp/img2.webp.
 - `assets/iaeste-discover.webp`: IAESTE Tajikistan's volleyball photo, https://www.iaeste.tj/images/gallery/webp/img4.webp.
