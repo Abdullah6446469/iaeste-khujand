@@ -1,6 +1,6 @@
 # IAESTE Khujand website
 
-An English-first informational website for the IAESTE Tajikistan Khujand Local Committee. It is a static site: no server, database, paid service, or form backend is required.
+An English-first informational website for IAESTE Khujand, a branch of IAESTE Tajikistan. It is a static site: no server, database, paid service, or form backend is required.
 
 Live site: https://abdullah6446469.github.io/iaeste-khujand/
 
@@ -11,9 +11,9 @@ Navigation and FAQs support keyboard use. Content remains readable without JavaS
 ## Edit and publish
 
 - Edit `index.html` for copy and links, `styles.css` for design, and `main.js` for navigation and animation.
-- The Khujand phone appears in `index.html`; verify it with the committee before changing it.
+- The Khujand phone appears in `index.html`; verify it with the branch before changing it.
 - GitHub Pages publishes the `main` branch from the repository root. Pushing an update to `main` republishes the site.
-- A custom domain can be added later if the committee owns one. The default `github.io` address is free.
+- A custom domain can be added later if the branch owns one. The default `github.io` address is free.
 
 ## Content sources
 
