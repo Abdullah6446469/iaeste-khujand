@@ -1,19 +1,19 @@
 # IAESTE Khujand website
 
-An English-first informational website for IAESTE Khujand, a branch of IAESTE Tajikistan. It is a static site: no server, database, paid service, or form backend is required.
+An English-first informational website for IAESTE Khujand, Tajikistan. It is a static site: no server, database, paid service, or form backend is required.
 
 Live site: https://abdullah6446469.github.io/iaeste-khujand/
 
 The design follows an institutional IAESTE direction: white navigation, deep blue and teal colours, technical experience photography, clear student and partner information, an application guide and native FAQ accordions. Motion includes a gentle introductory photo zoom, section reveals, one-time network counters and hover transitions. Animations respect the system's reduced-motion setting.
 
-Navigation and FAQs support keyboard use. Content remains readable without JavaScript. News and internship links point to official sources rather than presenting copied listings as a live feed. Network statistics are explicitly global IAESTE figures, sourced from the international homepage; they are not local branch statistics. There is no analytics, cookie banner, form backend or paid dependency.
+Navigation and FAQs support keyboard use. Content remains readable without JavaScript. News and internship links point to official sources rather than presenting copied listings as a live feed. Network statistics are explicitly global IAESTE figures, sourced from the international homepage; they are not Khujand-specific statistics. There is no analytics, cookie banner, form backend or paid dependency.
 
 ## Edit and publish
 
 - Edit `index.html` for copy and links, `styles.css` for design, and `main.js` for navigation and animation.
-- The Khujand phone appears in `index.html`; verify it with the branch before changing it.
+- The Khujand phone appears in `index.html`; verify it with the IAESTE Khujand team before changing it.
 - GitHub Pages publishes the `main` branch from the repository root. Pushing an update to `main` republishes the site.
-- A custom domain can be added later if the branch owns one. The default `github.io` address is free.
+- A custom domain can be added later if IAESTE Khujand owns one. The default `github.io` address is free.
 
 ## Content sources
 

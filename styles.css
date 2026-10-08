@@ -140,19 +140,11 @@ img {
   font-family: var(--heading);
   font-size: 23px;
   line-height: 1.25;
-  letter-spacing: -0.7px;
+  letter-spacing: 0.4px;
   font-weight: 750;
   border-left: 1px solid var(--line);
   padding-left: 19px;
-}
-.brand small {
-  display: block;
-  font-family: var(--body);
-  font-size: 8px;
-  letter-spacing: 1.1px;
-  font-weight: 600;
-  color: var(--muted);
-  margin-top: 6px;
+  white-space: nowrap;
 }
 .site-nav {
   display: flex;
@@ -1340,10 +1332,6 @@ h2 {
   font-size: 21px;
   border-color: #ffffff30;
 }
-.footer-brand .brand small {
-  font-size: 7px;
-  color: #9fbccc;
-}
 .footer-brand > p {
   font-size: 13px;
   line-height: 1.8;
@@ -1500,10 +1488,6 @@ h2 {
   .brand > span {
     font-size: 21px;
     padding-left: 14px;
-  }
-  .brand small {
-    font-size: 7px;
-    letter-spacing: 0.8px;
   }
   .site-nav {
     gap: 17px;
@@ -2014,10 +1998,6 @@ h2 {
     font-size: 18px;
     padding-left: 12px;
   }
-  .footer-brand .brand small {
-    font-size: 6px;
-    letter-spacing: 0.5px;
-  }
   .footer-brand > p {
     font-size: 11px;
   }
@@ -2051,10 +2031,6 @@ h2 {
   .brand > span {
     font-size: 21px;
     padding-left: 13px;
-  }
-  .brand small {
-    font-size: 6px;
-    letter-spacing: 0.7px;
   }
   .site-nav {
     top: 77px;
@@ -2629,10 +2605,6 @@ h2 {
   .footer-brand .brand > span {
     font-size: 21px;
   }
-  .footer-brand .brand small {
-    font-size: 6px;
-    letter-spacing: 0.8px;
-  }
   .footer-brand > p {
     font-size: 12px;
     line-height: 1.8;
@@ -2674,10 +2646,6 @@ h2 {
   }
   .brand > span {
     font-size: 18px;
-  }
-  .brand small {
-    font-size: 5px;
-    letter-spacing: 0.6px;
   }
   .brand {
     gap: 11px;
