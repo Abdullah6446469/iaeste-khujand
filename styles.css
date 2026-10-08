@@ -660,11 +660,11 @@ h2 {
   padding-bottom: 4px;
 }
 .programme-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 29px;
+  display: block;
 }
 .programme-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   background: white;
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -678,12 +678,14 @@ h2 {
   transform: translateY(-4px);
 }
 .programme-image {
-  height: 227px;
+  min-height: 280px;
   position: relative;
   overflow: hidden;
   background: #e5eff6;
 }
 .programme-image img {
+  position: absolute;
+  inset: 0;
   height: 100%;
   object-fit: cover;
   object-position: 50% 36%;
@@ -704,25 +706,11 @@ h2 {
   letter-spacing: 1px;
   border-radius: 2px;
 }
-.remote-visual {
-  display: grid;
-  place-items: center;
-  background: radial-gradient(ellipse at center, #fff, #e5f0f7);
-}
-.remote-visual > svg {
-  width: 100%;
-  height: 100%;
-  padding: 15px 10px 31px;
-}
-.connection-lines {
-  fill: none;
-  stroke: #b7cedd;
-  stroke-width: 1.5;
-}
-.connection-lines circle {
-  fill: #399abb;
-}
 .programme-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   padding: 29px 30px 31px;
 }
 .programme-content h3 {
@@ -1814,10 +1802,7 @@ h2 {
     font-size: 14px;
   }
   .programme-image {
-    height: 200px;
-  }
-  .programme-grid {
-    gap: 23px;
+    min-height: 260px;
   }
   .programme-content {
     padding: 24px 23px;
@@ -2279,11 +2264,11 @@ h2 {
     line-height: 1.75;
     margin-top: 21px;
   }
-  .programme-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .programme-card {
+    display: block;
   }
   .programme-image {
+    min-height: 0;
     height: 205px;
   }
   .programme-image > span {
