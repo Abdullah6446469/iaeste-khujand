@@ -4,11 +4,13 @@ An English-first informational website for the IAESTE Tajikistan Khujand Local C
 
 Live site: https://abdullah6446469.github.io/iaeste-khujand/
 
-The design uses IAESTE blue, the international IAESTE logo, responsive layouts, and imagery from the national committee's gallery. Navigation supports keyboard use, mobile menus and reduced-motion preferences. News and internship cards link to the official sources; they do not mirror time-sensitive listings or claim to be a live news feed.
+The design pairs dark navy and electric blue with large editorial typography, a rotating canvas globe, scroll reveals, subtle photo parallax and responsive layouts. Audience tabs cover students, employers and incoming interns. The global motion control pauses animation, remembers the preference locally and respects the system's reduced-motion setting. The globe stops rendering while off screen or when the browser tab is hidden.
+
+Navigation and tabs support keyboard use. Content remains readable without JavaScript. News and internship links point to official sources rather than presenting copied listings as a live feed. There is no analytics, cookie banner, form backend or paid dependency.
 
 ## Edit and publish
 
-- Edit `index.html` for copy and links, `styles.css` for design, and `main.js` for the mobile navigation.
+- Edit `index.html` for copy and links, `styles.css` for design, and `main.js` for navigation, tabs and animation.
 - The Khujand phone appears in `index.html`; verify it with the committee before changing it.
 - GitHub Pages publishes the `main` branch from the repository root. Pushing an update to `main` republishes the site.
 - A custom domain can be added later if the committee owns one. The default `github.io` address is free.
@@ -22,6 +24,7 @@ The design uses IAESTE blue, the international IAESTE logo, responsive layouts, 
 ## Photography
 
 - `assets/iaeste-logo-blue.png`: IAESTE International's blue logo, sourced from https://iaeste.org/.
+- `assets/iaeste-logo-white.png`: IAESTE International's white logo, sourced from https://iaeste.org/.
 - `assets/gallery-3.webp`: IAESTE Tajikistan's exchange group photo, https://www.iaeste.tj/images/gallery/webp/img3.webp.
 - `assets/gallery-2.webp`: IAESTE Tajikistan's community meal photo, https://www.iaeste.tj/images/gallery/webp/img2.webp.
 - `assets/iaeste-discover.webp`: IAESTE Tajikistan's volleyball photo, https://www.iaeste.tj/images/gallery/webp/img4.webp.
