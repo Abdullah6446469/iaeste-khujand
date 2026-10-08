@@ -30,7 +30,7 @@ Navigation and FAQs support keyboard use. Content remains readable without JavaS
 - `assets/gallery-3.webp`: IAESTE Tajikistan's exchange group photo, https://www.iaeste.tj/images/gallery/webp/img3.webp.
 - `assets/gallery-2.webp`: IAESTE Tajikistan's community meal photo, https://www.iaeste.tj/images/gallery/webp/img2.webp.
 - `assets/iaeste-discover.webp`: IAESTE Tajikistan's volleyball photo, https://www.iaeste.tj/images/gallery/webp/img4.webp.
-- The national committee photos are presented as exchange imagery from its gallery. They are not labelled as current events or Khujand-specific events. Source credits are included in the footer.
+- The national committee photos are presented as exchange imagery from its gallery. They are not labelled as current events or Khujand-specific events. Sources are documented here; the two Creative Commons city photos have attribution beside the images.
 
 - `assets/khujand-river.jpg`: [Neu holland, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F_%D0%B2_%D0%A5%D1%83%D0%B4%D0%B6%D0%B0%D0%BD%D0%B4%D0%B5.jpg), CC BY-SA 4.0. Cropped in the page layout.
 - `assets/panjshanbe-bazaar.jpg`: [Steve Evans, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Panjshanbe_bazar_in_Khujand_.jpg), CC BY 2.0. Cropped in the page layout.
