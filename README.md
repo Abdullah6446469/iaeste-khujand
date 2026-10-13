@@ -21,7 +21,7 @@ The application journey sits on the existing blue-green accent, with a sticky in
 
 The documents section is an always-visible table with the same twelve requirements, order and language column as iaeste.tj. Six verified official DOCX/PDF forms are hosted unchanged under `assets/documents/` and download directly from this site. The broken official liability-policy download is replaced with a request link to the committee. Personal documents are prepared by the student; no files are uploaded. All five partner marks remain in their original colours.
 
-Motion includes staggered title entrances, globe rotation and travelling connections, one-time section reveals, application-step reveals, a moving internship underline, gallery sliding, photo hover feedback and native disclosure transitions in supported browsers. Reduced-motion preferences start the globe paused and disable CSS animations, transitions, smooth scrolling and decorative hover movement. Keyboard focus reveals controls immediately.
+Motion includes staggered title entrances, globe rotation and travelling connections, one-time section reveals, application-step reveals, a moving internship underline, gallery sliding, photo hover feedback and native disclosure transitions in supported browsers. The globe always animates while visible on desktop, without playback or reset buttons. Reduced-motion preferences disable CSS animations, transitions, smooth scrolling and decorative hover movement elsewhere on the page. Keyboard focus reveals controls immediately.
 
 - Internship tabs support arrow keys, Home and End.
 - The gallery supports previous/next, arrow keys, Escape and focus restoration.
@@ -53,7 +53,7 @@ The source’s [2024 Khujand cultural programme](https://www.iaeste.tj/media/CP-
 - `index.html`: structured content, metadata, forms, source links and imagery.
 - `styles.css`: design tokens, components, responsive layouts and motion preferences.
 - `main.js`: navigation, internship tabs, active section tracking and gallery.
-- `globe.js`: desktop globe rendering, animated connections and accessible controls; inactive below 768 px.
+- `globe.js`: automatic desktop globe animation, drag and keyboard rotation; inactive below 768 px.
 - `DESIGN.md`: visual and editorial conventions.
 - `assets/`: local photography, official identity marks, favicon and downloadable nomination forms.
 
@@ -78,7 +78,8 @@ Creative Commons credits, licences and crop notices appear on the page. National
 Hero and documents update checked locally on 13 October 2026:
 
 - Removed the requested hero slogans; the opening copy now consists of the title and actions.
-- Removed the globe’s visible hint and disclaimer and the “Discover IAESTE” link, including their empty containers and styles. Globe animation, keyboard help and playback controls remain available.
+- Removed the globe’s visible hint and disclaimer and the “Discover IAESTE” link, including their empty containers and styles. Globe animation and keyboard help remain available.
+- Removed the globe’s play/pause and reset buttons and their empty toolbar. It animates automatically whenever visible on desktop, including while dragging and when reduced motion is requested; offscreen and hidden tabs suspend rendering until the globe is visible again.
 - Compared all twelve nomination requirements and languages with the official national table.
 - Downloaded and verified six official files; local HTTP downloads match their original SHA-256 checksums. DOCX archives and PDF signatures are valid.
 - Confirmed the official liability-policy URL returns HTTP 404 and supplied a committee request link.

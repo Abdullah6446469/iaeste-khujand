@@ -34,9 +34,9 @@
       rel="stylesheet"
     />
     <link rel="preload" as="fetch" href="assets/globe-land.json" crossorigin media="(min-width: 768px)" />
-    <link rel="stylesheet" href="styles.css?v=37" />
+    <link rel="stylesheet" href="styles.css?v=38" />
     <script src="main.js?v=24" defer></script>
-    <script src="globe.js?v=3" defer></script>
+    <script src="globe.js?v=4" defer></script>
   </head>
   <body id="top">
     <svg
@@ -152,11 +152,7 @@
                 <canvas class="world-canvas" width="800" height="720" aria-hidden="true"></canvas>
                 <div class="world-origin" aria-hidden="true"><span class="origin-line"></span><span class="origin-label"><strong>Tajikistan</strong><small>Khujand</small></span></div>
               </div>
-              <p id="globe-help" class="sr-only">Illustrative international connections from Khujand, Tajikistan. Drag horizontally to rotate the globe, or focus it and use the arrow keys. Use Home to return to Tajikistan. Animation can be paused.</p>
-              <div class="world-caption world-controls" hidden>
-                  <button class="world-reset" type="button" aria-label="Return globe to Tajikistan" title="Return to Tajikistan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6" /></svg></button>
-                  <button class="world-pause" type="button" aria-label="Pause globe animation" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pause-glyph" d="M9 6v12M15 6v12" /><path class="play-glyph" d="m9 5 10 7-10 7Z" /></svg><span>Pause</span></button>
-              </div>
+              <p id="globe-help" class="sr-only">Illustrative international connections from Khujand, Tajikistan. The globe animates automatically. Drag horizontally to rotate the globe, or focus it and use the arrow keys. Use Home to return to Tajikistan.</p>
             </figure>
           </div>
         </div>

@@ -106,13 +106,6 @@ h3 { font-size: 22px; line-height: 1.35; letter-spacing: -.035em; }
 .origin-label small { display: block; margin-top: 2px; font-size: 8px; color: var(--muted); }
 .world-origin.label-left { flex-direction: row-reverse; transform: translate(-100%, -50%); }
 .world-origin.label-left .origin-line { margin-left: 0; margin-right: 12px; }
-.world-caption { display: flex; justify-content: flex-end; align-items: center; gap: 20px; min-height: 44px; margin: -12px 58px 0; }
-.world-controls { display: flex; align-items: center; gap: 8px; }
-.world-controls button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; min-width: 44px; padding: 0 6px; border: 0; background: transparent; color: var(--accent); font-size: 10px; }
-.world-controls button:hover { color: var(--accent-dark); background: #20546408; border-radius: 50px; }
-.world-controls svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-.world-pause .play-glyph, .world-pause[aria-pressed='true'] .pause-glyph { display: none; }
-.world-pause[aria-pressed='true'] .play-glyph { display: block; }
 .round-arrow { display: grid; place-items: center; width: 58px; height: 58px; flex: none; border: 1px solid currentColor; border-radius: 50%; color: var(--accent); transition: transform .55s var(--ease), color .3s, background .3s; }
 .round-arrow .icon { width: 23px; height: 23px; }
 
@@ -655,13 +648,11 @@ h3 { font-size: 22px; line-height: 1.35; letter-spacing: -.035em; }
   .hero-intro .button { font-size: 11px; gap: 14px; }
   .hero-intro .text-link { font-size: 11px; }
   .world-figure { margin-inline: -8px -24px; }
-  .world-caption { margin-inline: 40px; }
 }
 @media (max-width: 960px) {
   .hero-copy { padding-block: 40px; }
   .hero h1 { font-size: 4.8vw; }
   .hero-actions { align-items: start; flex-direction: column; margin-top: 24px; gap: 6px; }
-  .world-caption { margin-inline: 25px; }
   .origin-label { padding: 8px 10px; }
   .origin-label strong { font-size: 9px; }
   .origin-label small { font-size: 7px; }
@@ -684,7 +675,6 @@ h3 { font-size: 22px; line-height: 1.35; letter-spacing: -.035em; }
   .hero-actions { gap: 12px; }
   .hero-intro .button { font-size: 10px; gap: 10px; padding-left: 14px; }
   .button-arrow { width: 32px; height: 32px; }
-  .world-caption { margin-inline: 20px; }
   .origin-label small { display: none; }
 }
 

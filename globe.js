@@ -7,13 +7,8 @@
   const context = canvas?.getContext("2d", { alpha: true });
   if (!context) return;
 
-  const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const globeLayout = window.matchMedia("(min-width: 768px)");
-  const figure = stage.closest("figure");
   const originLabel = stage.querySelector(".world-origin");
-  const controls = figure.querySelector(".world-controls");
-  const pauseButton = figure.querySelector(".world-pause");
-  const resetButton = figure.querySelector(".world-reset");
   const TAU = Math.PI * 2;
   const RAD = Math.PI / 180;
   const radius = 275;
@@ -26,7 +21,6 @@
   let ready = false;
   let loading = false;
   let inView = true;
-  let paused = motion.matches;
   let longitude = 0;
   let latitude = 0;
   let dragging = null;
@@ -186,7 +180,7 @@
     originLabel.classList.toggle("label-left", point.x > 520);
   }
 
-  function shouldAnimate() { return ready && globeLayout.matches && inView && !document.hidden && !paused && !dragging; }
+  function shouldAnimate() { return ready && globeLayout.matches && inView && !document.hidden; }
   function tick(time) {
     frame = 0;
     if (!shouldAnimate()) { lastFrame = 0; return; }
@@ -200,9 +194,6 @@
   function syncAnimation() {
     if (frame) cancelAnimationFrame(frame);
     frame = 0; lastFrame = 0;
-    pauseButton.setAttribute("aria-pressed", String(paused));
-    pauseButton.setAttribute("aria-label", paused ? "Play globe animation" : "Pause globe animation");
-    pauseButton.querySelector("span").textContent = paused ? "Play" : "Pause";
     if (shouldAnimate()) frame = requestAnimationFrame(tick);
   }
   function resize() {
@@ -217,16 +208,12 @@
   }
   function reset() { longitude = 0; latitude = 0; elapsed = 0; render(); }
 
-  pauseButton.addEventListener("click", () => { paused = !paused; syncAnimation(); });
-  resetButton.addEventListener("click", reset);
-  motion.addEventListener("change", event => { paused = event.matches; syncAnimation(); render(); });
   document.addEventListener("visibilitychange", syncAnimation);
   stage.addEventListener("pointerdown", event => {
     if (event.button !== 0 || !ready) return;
     dragging = { x: event.clientX, y: event.clientY, longitude, latitude, id: event.pointerId };
     stage.setPointerCapture(event.pointerId);
     stage.classList.add("is-dragging");
-    syncAnimation();
   });
   stage.addEventListener("pointermove", event => {
     if (!dragging || event.pointerId !== dragging.id) return;
@@ -235,7 +222,7 @@
     latitude = Math.max(-55, Math.min(45, dragging.latitude + (event.clientY - dragging.y) * sensitivity * .6));
     render();
   });
-  function endDrag() { dragging = null; stage.classList.remove("is-dragging"); syncAnimation(); }
+  function endDrag() { dragging = null; stage.classList.remove("is-dragging"); }
   stage.addEventListener("pointerup", endDrag);
   stage.addEventListener("pointercancel", endDrag);
   stage.addEventListener("lostpointercapture", () => { if (dragging) endDrag(); });
@@ -264,7 +251,6 @@
       resize();
       stage.classList.add("is-ready");
       stage.tabIndex = 0;
-      controls.hidden = false;
       if ("ResizeObserver" in window) new ResizeObserver(resize).observe(stage);
       else window.addEventListener("resize", resize);
       if ("IntersectionObserver" in window) {
