@@ -14,7 +14,7 @@ Open [the local preview](http://127.0.0.1:4173/).
 
 ## Design and content
 
-The original blue-green, white, off-white and dark text palette is preserved. The selected creative-studio direction combines DM Sans with Instrument Serif, an animated geographic globe on larger screens, numbered content rows and varied section compositions. Below 768 px, the hero uses a single column of copy and actions with no globe or globe asset downloads.
+The original blue-green, white, off-white and dark text palette is preserved. The typography combines upright Manrope headings with Inter body text, consistent semibold emphasis, tabular numerals and comfortable spacing. An animated geographic globe appears on larger screens alongside varied section compositions. Below 768 px, the hero uses a single column of copy and actions with no globe or globe asset downloads.
 
 Decorative divider lines have been removed from section boundaries and content rows, including the partner strip, application steps, document table, news, FAQ and contact sections. Spacing and existing background colours separate content. Button outlines and active control indicators remain visible.
 The application journey sits on the existing blue-green accent, with a sticky introduction, oversized step numbers and a compact timeline. Internship formats use a moving underline and an asymmetric image-and-copy layout. A wide photographic Khujand feature leads into a horizontal gallery with previous/next controls. Archived news appears as publication-style rows. Practical instructions and source attribution are retained.
@@ -78,6 +78,7 @@ Creative Commons credits, licences and crop notices appear on the page. National
 Hero and documents update checked locally on 13 October 2026:
 
 - Removed the requested hero slogans; the opening copy now consists of the title and actions.
+- Replaced the decorative italic serif treatment with Manrope headings and Inter body text. Retuned heading sizes, line heights, numeral styles and paragraph sizes across the site while preserving the full-name letter animation.
 - Removed all eight numbered section labels. Main headings introduce each section directly; the About heading and copy share the same left edge, with no empty label column.
 - The hero uses the full name “International Association for the Exchange of Students for Technical Experience,” verified against [IAESTE’s official overview](https://iaeste.org/about). Each letter reveals once in reading order; whole words, the complete accessible heading and static text without JavaScript or with reduced motion are preserved.
 - Removed the globe’s visible hint and disclaimer and the “Discover IAESTE” link, including their empty containers and styles. Globe animation and keyboard help remain available.
