@@ -114,12 +114,10 @@ h3 { font-size: 22px; line-height: 1.35; letter-spacing: -.035em; }
 
 /* An editorial introduction with the factual national figures separated from local support. */
 .about-section { padding-bottom: 0; background: white; }
-.about-grid { display: grid; grid-template-columns: .32fr 1fr; gap: 32px 60px; }
-.about-grid > div:first-child { grid-column: 1 / -1; display: grid; grid-template-columns: .32fr 1fr; gap: 60px; align-items: start; }
-.about-grid .eyebrow { padding-top: 10px; }
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
 .about-grid h2 { max-width: 1000px; font-size: clamp(44px, 5.3vw, 76px); }
 .about-grid h2 em { color: var(--accent); }
-.about-copy { grid-column: 2; display: flex; align-items: end; justify-content: space-between; gap: 44px; }
+.about-copy { grid-column: 1; display: flex; align-items: end; justify-content: space-between; gap: 44px; }
 .about-copy > p { max-width: 540px; color: var(--muted); font-size: 14px; line-height: 1.85; }
 .about-copy .text-link { flex: none; font-size: 11px; }
 .national-impact { display: grid; grid-template-columns: .65fr repeat(3, 1fr); align-items: end; gap: 32px; margin-top: 64px; padding-block: 34px 48px; }
@@ -170,7 +168,6 @@ h3 { font-size: 22px; line-height: 1.35; letter-spacing: -.035em; }
 .apply-section { background: var(--accent); color: white; }
 .apply-section > .container { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px 90px; align-items: start; }
 .apply-section .section-heading { position: sticky; top: 130px; display: block; grid-row: 1 / span 2; margin: 0; }
-.apply-section .eyebrow { color: #ffffffb3; }
 .apply-section h2 { font-size: clamp(64px, 7vw, 100px); line-height: .98; }
 .apply-section h2 em { font-size: 1.2em; }
 .apply-section .section-heading > .text-link { margin-top: 32px; color: white; }
@@ -239,8 +236,7 @@ h3 { font-size: 22px; line-height: 1.35; letter-spacing: -.035em; }
 
 /* A cinematic city feature and a horizontal gallery break the column rhythm. */
 .city-section { padding-block: 72px; background: var(--paper); }
-.city-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
-.city-heading .eyebrow { margin: 0; }
+.city-heading { display: flex; align-items: center; justify-content: flex-end; gap: 24px; margin-bottom: 24px; }
 .city-heading > span { color: var(--muted); font-size: 11px; }
 .city-scene { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; min-height: 600px; padding: 58px; overflow: hidden; color: white; background: var(--accent-dark); }
 .city-scene::after { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, #153d49d9 0%, #153d4980 46%, #153d491a 100%); }
@@ -421,7 +417,6 @@ h3 { font-size: 22px; line-height: 1.35; letter-spacing: -.035em; }
   .brand { gap: 12px; }
   .brand-location { padding-left: 12px; }
   .round-arrow { width: 50px; height: 50px; }
-  .about-grid, .about-grid > div:first-child { gap: 32px 40px; }
   .about-copy { display: block; }
   .about-copy .text-link { margin-top: 16px; }
   .national-impact { gap: 24px; }
@@ -449,7 +444,7 @@ h3 { font-size: 22px; line-height: 1.35; letter-spacing: -.035em; }
   .nav-ready .site-nav.is-open { display: flex; flex-direction: column; animation: enter .3s var(--ease); }
   .site-nav > a:not(.button) { padding: 14px 0; font-size: 14px; }
   .nav-cta { align-self: start; margin-top: 12px; }
-  .about-grid, .about-grid > div:first-child { grid-template-columns: .3fr 1fr; gap: 26px 28px; }
+  .about-grid { gap: 26px; }
   .about-grid h2 { font-size: 48px; }
   .national-impact { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 44px; }
   .impact-intro { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
@@ -501,11 +496,7 @@ h3 { font-size: 22px; line-height: 1.35; letter-spacing: -.035em; }
   .brand-location > span { font-size: 8px; }
   h2 { font-size: clamp(42px, 8.6vw, 58px); }
   .eyebrow { font-size: 9px; margin-bottom: 22px; }
-  .about-grid { grid-template-columns: 1fr; gap: 26px; }
-  .about-grid > div:first-child { display: block; }
-  .about-grid .eyebrow { padding: 0; }
   .about-grid h2 { font-size: clamp(39px, 8.4vw, 58px); }
-  .about-copy { grid-column: 1; }
   .about-copy > p { max-width: 530px; font-size: 13px; }
   .about-copy .text-link { font-size: 12px; }
   .national-impact { padding-block: 18px 34px; gap: 22px 16px; margin-top: 32px; }
