@@ -105,9 +105,8 @@ h3 { font-size: 22px; line-height: 1.4; letter-spacing: -.015em; }
 .world-stage.is-ready .world-origin { opacity: 1; }
 .world-stage .world-origin.is-hidden { opacity: 0; }
 .origin-line { width: clamp(20px, 2.4vw, 34px); height: 1px; background: #ffffffa6; margin-left: 12px; }
-.origin-label { display: block; padding: 11px 15px 12px; border: 1px solid #20546412; border-radius: 3px; background: #f5f6f4f2; color: var(--accent-dark); box-shadow: 0 5px 24px #153d4912; white-space: nowrap; }
+.origin-label { display: block; padding: 10px 15px; border: 1px solid #20546412; border-radius: 3px; background: #f5f6f4f2; color: var(--accent-dark); box-shadow: 0 5px 24px #153d4912; white-space: nowrap; }
 .origin-label strong { display: block; font-size: 10px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
-.origin-label small { display: block; margin-top: 2px; font-size: 8px; color: var(--muted); }
 .world-origin.label-left { flex-direction: row-reverse; transform: translate(-100%, -50%); }
 .world-origin.label-left .origin-line { margin-left: 0; margin-right: 12px; }
 .round-arrow { display: grid; place-items: center; width: 58px; height: 58px; flex: none; border: 1px solid currentColor; border-radius: 50%; color: var(--accent); transition: transform .55s var(--ease), color .3s, background .3s; }
@@ -644,7 +643,6 @@ h3 { font-size: 22px; line-height: 1.4; letter-spacing: -.015em; }
   .hero-actions { align-items: start; flex-direction: column; margin-top: 24px; gap: 12px; }
   .origin-label { padding: 8px 10px; }
   .origin-label strong { font-size: 9px; }
-  .origin-label small { font-size: 7px; }
 }
 @media (width < 768px) {
   .hero { padding-bottom: 18px; }
@@ -663,7 +661,6 @@ h3 { font-size: 22px; line-height: 1.4; letter-spacing: -.015em; }
   .hero-intro .button { font-size: 10px; gap: 10px; padding-left: 14px; }
   .hero-intro .hero-apply { padding: 12px 14px; gap: 8px; }
   .button-arrow { width: 32px; height: 32px; }
-  .origin-label small { display: none; }
 }
 
 
