@@ -1,36 +1,93 @@
-# IAESTE Khujand website
+# IAESTE Khujand
 
-An English-first informational website for IAESTE Khujand, Tajikistan. It is a static site: no server, database, paid service, or form backend is required.
+A student-focused informational website for IAESTE Khujand, Tajikistan. Built with semantic HTML, CSS and vanilla JavaScript. No build step or backend is required.
 
-Live site: https://abdullah6446469.github.io/iaeste-khujand/
+## Local preview
 
-The design follows an institutional IAESTE direction: white navigation, deep blue and teal colours, technical experience photography, clear student and partner information, an application guide and native FAQ accordions. Motion includes a gentle introductory photo zoom, section reveals, one-time network counters and hover transitions. Animations respect the system's reduced-motion setting.
+From the project directory:
 
-Navigation and FAQs support keyboard use. Content remains readable without JavaScript. News and internship links point to official sources rather than presenting copied listings as a live feed. Network statistics are explicitly global IAESTE figures, sourced from the international homepage; they are not Khujand-specific statistics. There is no analytics, cookie banner, form backend or paid dependency.
+```sh
+python -m http.server 4173 --bind 127.0.0.1
+```
 
-## Edit and publish
+Open [the local preview](http://127.0.0.1:4173/).
 
-- Edit `index.html` for copy and links, `styles.css` for design, and `main.js` for navigation and animation.
-- The Khujand phone appears in `index.html`; verify it with the IAESTE Khujand team before changing it.
-- GitHub Pages publishes the `main` branch from the repository root. Pushing an update to `main` republishes the site.
-- A custom domain can be added later if IAESTE Khujand owns one. The default `github.io` address is free.
+## Design and content
 
-## Content sources
+The original blue-green, white, off-white and dark text palette is preserved. The selected creative-studio direction combines DM Sans with Instrument Serif, an animated geographic globe on larger screens, numbered content rows and varied section compositions. Below 768 px, the hero uses a single column of copy and actions with no globe or globe asset downloads.
 
-- [IAESTE Tajikistan](https://www.iaeste.tj/) for the national committee, Khujand contact number and student guidance.
-- [IAESTE International](https://iaeste.org/) for current internship listings and the exchange process.
-- [Khujand Local Committee cultural programme](https://www.iaeste.tj/media/CP-2024_LC-Khujand.pdf) for confirmation of the local committee. Its 2024 events are intentionally not presented as current.
+Decorative divider lines have been removed from section boundaries and content rows, including the partner strip, application steps, document table, news, FAQ and contact sections. Spacing and existing background colours separate content. Button outlines and active control indicators remain visible.
+The application journey sits on the existing blue-green accent, with a sticky introduction, oversized step numbers and a compact timeline. Internship formats use a moving underline and an asymmetric image-and-copy layout. A wide photographic Khujand feature leads into a horizontal gallery with previous/next controls. Archived news appears as publication-style rows. Practical instructions and source attribution are retained.
 
-## Photography
+The documents section is an always-visible table with the same twelve requirements, order and language column as iaeste.tj. Six verified official DOCX/PDF forms are hosted unchanged under `assets/documents/` and download directly from this site. The broken official liability-policy download is replaced with a request link to the committee. Personal documents are prepared by the student; no files are uploaded. All five partner marks remain in their original colours.
 
-- `assets/iaeste-logo-blue.png`: IAESTE International's blue logo, sourced from https://iaeste.org/.
-- `assets/iaeste-logo-white.png`: IAESTE International's white logo, sourced from https://iaeste.org/.
-- `assets/international-exchange.webp`: the technical learning photograph from IAESTE International's homepage, https://iaeste.org/uploads/images/home_page_section/image/1/medium_2c4f8dda-c8ed-4057-9bbe-6f6791e3236a.jpg, converted to WebP.
-- `assets/practical-experience.webp`: the practical experience photograph from IAESTE International, https://iaeste.org/uploads/images/benefit/image/1/medium_abd9aa65-d139-4256-a744-92fe46659f8d.png, converted to WebP.
-- `assets/gallery-3.webp`: IAESTE Tajikistan's exchange group photo, https://www.iaeste.tj/images/gallery/webp/img3.webp.
-- `assets/gallery-2.webp`: IAESTE Tajikistan's community meal photo, https://www.iaeste.tj/images/gallery/webp/img2.webp.
-- `assets/iaeste-discover.webp`: IAESTE Tajikistan's volleyball photo, https://www.iaeste.tj/images/gallery/webp/img4.webp.
-- The national committee photos are presented as exchange imagery from its gallery. They are not labelled as current events or Khujand-specific events. Sources are documented here; the two Creative Commons city photos have attribution beside the images.
+Motion includes staggered title entrances, globe rotation and travelling connections, one-time section reveals, application-step reveals, a moving internship underline, gallery sliding, photo hover feedback and native disclosure transitions in supported browsers. Reduced-motion preferences start the globe paused and disable CSS animations, transitions, smooth scrolling and decorative hover movement. Keyboard focus reveals controls immediately.
 
-- `assets/khujand-river.jpg`: [Neu holland, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F_%D0%B2_%D0%A5%D1%83%D0%B4%D0%B6%D0%B0%D0%BD%D0%B4%D0%B5.jpg), CC BY-SA 4.0. Cropped in the page layout.
-- `assets/panjshanbe-bazaar.jpg`: [Steve Evans, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Panjshanbe_bazar_in_Khujand_.jpg), CC BY 2.0. Cropped in the page layout.
+- Internship tabs support arrow keys, Home and End.
+- The gallery supports previous/next, arrow keys, Escape and focus restoration.
+- The horizontal photo sequence supports native touch scrolling, navigation buttons, an updating counter and arrow keys when focused.
+- Mobile navigation closes after a destination, Escape or outside focus.
+- Essential sections, both internship formats, native disclosures and form links remain available without JavaScript.
+- Photography, logos and favicon are local; Google Fonts has system fallbacks.
+
+## Source and accuracy
+
+Primary source: [IAESTE Tajikistan](https://www.iaeste.tj/), checked on **13 October 2026** for nomination requirements, file links, national figures, timetable and contact details.
+
+- The summer 2027 application notice, 31 October 2026 CV deadline, `iaeste@inbox.ru` application address, language requirement, payment note and placement-chance statement were supplied by the site owner and translated into English. The notice, first application step and FAQ use this current intake information.
+- The September, October, January–February and March timeline reproduces the published national cycle. It is not presented as confirmed dates for a particular year.
+- The 1992 establishment date and 425+/289+ exchange totals are identified as published **national** figures.
+- All twelve document requirements and languages come from the national nomination table. Six working DOCX/PDF forms were downloaded unchanged from its official links on 13 October 2026. File provenance and checksums are recorded in `assets/documents/SOURCES.json`.
+- The Germany enrolment form is explicitly destination-specific.
+- The source’s liability-policy link returns 404. That row directs students to request the form from the committee.
+- Offers link to the official IAESTE internship platform; availability and individual deadlines are not invented.
+- The two national news items are explicitly archives. The Khujand cultural programme is labelled **2024 archive**, and students are directed to the committee for current activities.
+- All five unique partner marks listed by the national committee are included: Babilon-T, ACTED, the National Academy of Sciences of Tajikistan, Alif and ARKON Education Group. The heading is “Our partners,” with no subtitle or source link in the section. The five linked logos scroll continuously with a repeated visual sequence; that copy adds no screen-reader announcements or keyboard stops.
+- The Babilon-T mark now links to its verified official website; the source pairs that mark with a Babilon-Mobile link. ARKON’s link is functional here despite the source’s `hre` attribute typo.
+- Contact uses the verified Khujand telephone **+992 92 773 50 05** and national email **tajikistan@iaeste.org**. No Khujand office address or response time is assumed.
+
+The source’s [2024 Khujand cultural programme](https://www.iaeste.tj/media/CP-2024_LC-Khujand.pdf) informs the cultural content.
+
+## Files
+
+- `index.html`: structured content, metadata, forms, source links and imagery.
+- `styles.css`: design tokens, components, responsive layouts and motion preferences.
+- `main.js`: navigation, internship tabs, active section tracking and gallery.
+- `globe.js`: desktop globe rendering, animated connections and accessible controls; inactive below 768 px.
+- `DESIGN.md`: visual and editorial conventions.
+- `assets/`: local photography, official identity marks, favicon and downloadable nomination forms.
+
+The existing GitHub Pages setup serves the repository root. Changes are local until committed and published. Update the Open Graph URL and image URL if the production domain changes.
+
+## Image sources and licences
+
+- `globe-land.json`, `globe-static.svg`: derived from the [Natural Earth 1:110m country dataset](https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_admin_0_countries.geojson), public domain. Connections are illustrative, rather than a list of available placements.
+- IAESTE blue/white logos: retained official IAESTE assets.
+- `gallery-2.webp`, `gallery-3.webp`, `iaeste-discover.webp`: retained national committee gallery photography, originally from `https://www.iaeste.tj/images/gallery/webp/img2.webp`, `img3.webp` and `img4.webp`.
+- `international-exchange.webp`, `practical-experience.webp`: retained project assets showing technical teamwork and laboratory research; used as illustrative internship photography.
+- `gallery-community.webp`: [national gallery image 6](https://www.iaeste.tj/images/gallery/webp/img6.webp).
+- `news-anniversary.webp`, `news-conference.webp`: [anniversary artwork](https://www.iaeste.tj/images/news/iaeste_30th_birthday.webp) and [conference artwork](https://www.iaeste.tj/images/news/vienna.webp).
+- `partner-babilon.webp`, `partner-acted.webp`, `partner-academy.webp`, `partner-alif.webp`, `partner-arkon.webp`: national committee partner images 1, 2, 4, 5 and 6 under `https://www.iaeste.tj/images/partners/`. Original logo colours and artwork are preserved; CSS balances their visual sizes.
+- `khujand-river.jpg`: [Neu holland, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F_%D0%B2_%D0%A5%D1%83%D0%B4%D0%B6%D0%B0%D0%BD%D0%B4%D0%B5.jpg), CC BY-SA 4.0.
+- `panjshanbe-bazaar.jpg`: [Steve Evans, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Panjshanbe_bazar_in_Khujand_.jpg), CC BY 2.0.
+
+Creative Commons credits, licences and crop notices appear on the page. National gallery photographs are attributed to the IAESTE Tajikistan community.
+
+## Verification
+
+Hero and documents update checked locally on 13 October 2026:
+
+- Removed the requested hero slogans; the opening copy now consists of the title and actions.
+- Compared all twelve nomination requirements and languages with the official national table.
+- Downloaded and verified six official files; local HTTP downloads match their original SHA-256 checksums. DOCX archives and PDF signatures are valid.
+- Confirmed the official liability-policy URL returns HTTP 404 and supplied a committee request link.
+- Tested native browser downloads of the student nomination DOCX and Germany enrolment PDF.
+- Reviewed the document layout on desktop and phone; no horizontal overflow at 320, 390, 700, 768 or 1280 px.
+- Confirmed the phone globe remains hidden.
+- Added the site owner’s summer 2027 application notice in English, including the 31 October 2026 deadline and email action; checked it at 320, 390, 768 and 1280 px without horizontal overflow.
+- Removed Яхмоси 33 from the displayed partner network and changed the desktop grid to five columns.
+- Replaced the static partner row with an automatic continuous strip, without a playback button. Hover and keyboard focus stop movement; touch and horizontal wheel gestures take temporary control, with automatic resume after scrolling settles. Animation also stops offscreen or in a hidden tab. Reduced motion and no JavaScript retain a static, fully visible partner grid.
+- Verified partner loop wraparound, keyboard focus visibility and native horizontal scrolling. The strip has no page overflow at 320, 390 or 1280 px.
+- Checked HTML nesting, unique IDs, internal links and local asset paths. JavaScript syntax and Git whitespace checks passed; browser diagnostics reported no warnings or errors.
+
+The earlier gallery, internship-tab and mobile-navigation interaction checks are recorded in the previous design review. This update changed the hero copy, document downloads, application notice and partner list.

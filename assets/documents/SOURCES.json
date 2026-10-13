@@ -1,0 +1,53 @@
+{
+  "source": "https://www.iaeste.tj/#students",
+  "checked": "2026-10-13",
+  "files": [
+    {
+      "file": "1-IAESTE-student-nomination-form.docx",
+      "url": "https://www.iaeste.tj/media/1-IAESTE-student-nomination-form.docx",
+      "status": 200,
+      "bytes": 15543,
+      "sha256": "1dac5852a2c084dce4e35f37eda55b7591e53fb2ac1748dd097ff78d0006bd53"
+    },
+    {
+      "file": "6-IAESTE-list-of-previous-practical-training-form.docx",
+      "url": "https://www.iaeste.tj/media/6-IAESTE-list-of-previous-practical-training-form.docx",
+      "status": 200,
+      "bytes": 12574,
+      "sha256": "65065e946847ac994fae80ef82469719d2e6114bc7f0e6d8dd50c9f154b62271"
+    },
+    {
+      "file": "5-IAESTE-list-of-subjects-form.docx",
+      "url": "https://www.iaeste.tj/media/5-IAESTE-list-of-subjects-form.docx",
+      "status": 200,
+      "bytes": 14964,
+      "sha256": "410058b81d6923a73358e5050084bcf2601b9a92744e312814e97b98e99747e6"
+    },
+    {
+      "file": "7-certificate-of-enrollment.pdf",
+      "url": "https://www.iaeste.tj/media/7-certificate-of-enrollment.pdf",
+      "status": 200,
+      "bytes": 208759,
+      "sha256": "ffa527d04b2c4a12306ea2adfa8c0c18674bfaa7ea27813ee2fbaaa264ee1f27"
+    },
+    {
+      "file": "8-IAESTE-language-certificate-form.docx",
+      "url": "https://www.iaeste.tj/media/8-IAESTE-language-certificate-form.docx",
+      "status": 200,
+      "bytes": 31170,
+      "sha256": "25502730e85f1b4ccc237aa187b47b83f31020de8fe31187fcd65c26d1c1996c"
+    },
+    {
+      "file": "9-IAESTE-medical-form.docx",
+      "url": "https://www.iaeste.tj/media/9-IAESTE-medical-form.docx",
+      "status": 200,
+      "bytes": 25760,
+      "sha256": "0386acfb1ec1f54e5c87d14f11b34624ae5205ba66ae47c120fc7ccb5adb9051"
+    },
+    {
+      "file": "10-IAESTE-liability-policy.docx",
+      "url": "https://www.iaeste.tj/media/10-IAESTE-liability-policy.docx",
+      "status": 404
+    }
+  ]
+}
