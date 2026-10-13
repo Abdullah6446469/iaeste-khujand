@@ -6,6 +6,34 @@ const menuButton = document.querySelector(".menu-button");
 const nav = document.querySelector(".site-nav");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+// Reveal every letter once, preserving whole words and one accessible heading.
+const heroTitle = document.getElementById("hero-title");
+if (heroTitle && !reducedMotion.matches) {
+  let letterIndex = 0;
+  heroTitle.querySelectorAll(".hero-line").forEach((line) => {
+    const source = line.querySelector("em") || line;
+    const content = document.createDocumentFragment();
+    source.textContent.split(/(\s+)/).forEach((segment) => {
+      if (!segment) return;
+      if (/^\s+$/.test(segment)) {
+        content.append(document.createTextNode(segment));
+        return;
+      }
+      const word = document.createElement("span");
+      word.className = "hero-word";
+      Array.from(segment).forEach((character) => {
+        const letter = document.createElement("span");
+        letter.className = "hero-letter";
+        letter.textContent = character;
+        letter.style.setProperty("--letter-delay", `${letterIndex++ * 13}ms`);
+        word.append(letter);
+      });
+      content.append(word);
+    });
+    source.replaceChildren(content);
+  });
+}
+
 function closeMenu(restoreFocus = false) {
   if (!menuButton || !nav) return;
   menuButton.setAttribute("aria-expanded", "false");

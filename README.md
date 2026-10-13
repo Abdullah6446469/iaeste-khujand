@@ -78,6 +78,7 @@ Creative Commons credits, licences and crop notices appear on the page. National
 Hero and documents update checked locally on 13 October 2026:
 
 - Removed the requested hero slogans; the opening copy now consists of the title and actions.
+- The hero uses the full name “International Association for the Exchange of Students for Technical Experience,” verified against [IAESTE’s official overview](https://iaeste.org/about). Each letter reveals once in reading order; whole words, the complete accessible heading and static text without JavaScript or with reduced motion are preserved.
 - Removed the globe’s visible hint and disclaimer and the “Discover IAESTE” link, including their empty containers and styles. Globe animation and keyboard help remain available.
 - Removed the globe’s play/pause and reset buttons and their empty toolbar. It animates automatically whenever visible on desktop, including while dragging and when reduced motion is requested; offscreen and hidden tabs suspend rendering until the globe is visible again.
 - Compared all twelve nomination requirements and languages with the official national table.
