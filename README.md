@@ -78,6 +78,7 @@ Creative Commons credits, licences and crop notices appear on the page. National
 Hero and documents update checked locally on 13 October 2026:
 
 - Removed the requested hero slogans; the opening copy now consists of the title and actions.
+- Removed the globe’s visible hint and disclaimer and the “Discover IAESTE” link, including their empty containers and styles. Globe animation, keyboard help and playback controls remain available.
 - Compared all twelve nomination requirements and languages with the official national table.
 - Downloaded and verified six official files; local HTTP downloads match their original SHA-256 checksums. DOCX archives and PDF signatures are valid.
 - Confirmed the official liability-policy URL returns HTTP 404 and supplied a committee request link.

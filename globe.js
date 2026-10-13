@@ -14,7 +14,6 @@
   const controls = figure.querySelector(".world-controls");
   const pauseButton = figure.querySelector(".world-pause");
   const resetButton = figure.querySelector(".world-reset");
-  const hint = figure.querySelector(".world-hint");
   const TAU = Math.PI * 2;
   const RAD = Math.PI / 180;
   const radius = 275;
@@ -266,7 +265,6 @@
       stage.classList.add("is-ready");
       stage.tabIndex = 0;
       controls.hidden = false;
-      hint.textContent = "Drag to explore";
       if ("ResizeObserver" in window) new ResizeObserver(resize).observe(stage);
       else window.addEventListener("resize", resize);
       if ("IntersectionObserver" in window) {
@@ -280,7 +278,6 @@
     .catch(() => {
       // Keep the geographic SVG and all content readable if Canvas or data loading fails.
       loading = false;
-      hint.textContent = "Connected across borders";
     });
   }
   globeLayout.addEventListener("change", () => {

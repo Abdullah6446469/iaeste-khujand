@@ -34,9 +34,9 @@
       rel="stylesheet"
     />
     <link rel="preload" as="fetch" href="assets/globe-land.json" crossorigin media="(min-width: 768px)" />
-    <link rel="stylesheet" href="styles.css?v=36" />
+    <link rel="stylesheet" href="styles.css?v=37" />
     <script src="main.js?v=24" defer></script>
-    <script src="globe.js?v=2" defer></script>
+    <script src="globe.js?v=3" defer></script>
   </head>
   <body id="top">
     <svg
@@ -143,7 +143,7 @@
                 </div>
               </div>
             </div>
-            <figure class="world-figure" aria-labelledby="world-caption">
+            <figure class="world-figure" aria-label="International connections from Khujand">
               <div class="world-stage" role="group" aria-label="Interactive globe" aria-describedby="globe-help">
                 <picture>
                   <source media="(min-width: 768px)" srcset="assets/globe-static.svg" />
@@ -153,16 +153,12 @@
                 <div class="world-origin" aria-hidden="true"><span class="origin-line"></span><span class="origin-label"><strong>Tajikistan</strong><small>Khujand</small></span></div>
               </div>
               <p id="globe-help" class="sr-only">Illustrative international connections from Khujand, Tajikistan. Drag horizontally to rotate the globe, or focus it and use the arrow keys. Use Home to return to Tajikistan. Animation can be paused.</p>
-              <figcaption class="world-caption" id="world-caption">
-                <span class="world-note"><span aria-hidden="true">↔</span><span class="world-hint">Connected across borders</span></span>
-                <div class="world-controls" hidden>
+              <div class="world-caption world-controls" hidden>
                   <button class="world-reset" type="button" aria-label="Return globe to Tajikistan" title="Return to Tajikistan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6" /></svg></button>
                   <button class="world-pause" type="button" aria-label="Pause globe animation" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pause-glyph" d="M9 6v12M15 6v12" /><path class="play-glyph" d="m9 5 10 7-10 7Z" /></svg><span>Pause</span></button>
-                </div>
-              </figcaption>
+              </div>
             </figure>
           </div>
-          <div class="hero-bottom"><a href="#about">Discover IAESTE <span aria-hidden="true">↓</span></a><span class="globe-disclaimer">Connections shown are illustrative.</span></div>
         </div>
       </section>
       <section
