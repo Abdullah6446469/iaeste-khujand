@@ -41,7 +41,7 @@ The phone hero contains no globe. Its copy and actions fill a single column. The
 
 ## Motion and accessibility
 
-Use a staggered, clipped title entrance; one-time content reveals; application-step reveals; a moving tab underline; smooth gallery navigation; and restrained photo zooms. The desktop globe rotates gently, animates particles along geographic arcs and pulses at Khujand. It plays automatically while visible, including during dragging and when reduced motion is requested. Suspend rendering outside the viewport, on a hidden tab or below 768 px and resume automatically when visible again.
+Use a staggered, clipped title entrance; one-time content reveals; application-step reveals; a moving tab underline; smooth gallery navigation; and restrained photo zooms. The desktop globe spins into place once, then rotates gently with lit, atmospheric shading, comet-trail particles along geographic arcs, arrival ripples and a double pulse at Khujand. Dragging eases with momentum, arrow keys glide and Home eases back to Tajikistan. It plays automatically while visible, including during dragging and when reduced motion is requested (the entrance spin is skipped then). Suspend rendering outside the viewport, on a hidden tab or below 768 px and resume automatically when visible again. Buttons share one interaction system: a fill that expands from the pointer's entry point, a 2 px lift with deeper shadow, an arrow that passes through its circle, a press scale and the same fill for keyboard focus.
 
 Keep the gallery's native touch scrolling. Its buttons and arrow-key controls update the counter and disable at the ends. The lightbox retains Escape, previous/next keys, focus containment and focus restoration.
 

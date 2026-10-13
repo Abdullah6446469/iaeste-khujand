@@ -492,3 +492,14 @@ if (year)
     year: "numeric",
     timeZone: "Asia/Tashkent",
   }).format(new Date());
+
+// Buttons fill from the point where the pointer enters or leaves, so the hover feels directional.
+document.querySelectorAll(".button").forEach((button) => {
+  const setOrigin = (event) => {
+    const box = button.getBoundingClientRect();
+    button.style.setProperty("--pointer-x", `${event.clientX - box.left}px`);
+    button.style.setProperty("--pointer-y", `${event.clientY - box.top}px`);
+  };
+  button.addEventListener("pointerenter", setOrigin);
+  button.addEventListener("pointerleave", setOrigin);
+});
