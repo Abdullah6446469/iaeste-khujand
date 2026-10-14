@@ -1,0 +1,53 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-pages-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: production
+      url: https://iaeste-khujand.pages.dev/
+    steps:
+      - name: Check out the website
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+
+      - name: Check JavaScript
+        run: |
+          node --check main.js
+          node --check globe.js
+
+      - name: Prepare the public website files
+        run: |
+          mkdir -p "$RUNNER_TEMP/iaeste-khujand"
+          cp index.html styles.css mobile.css main.js globe.js robots.txt sitemap.xml "$RUNNER_TEMP/iaeste-khujand/"
+          cp -R assets "$RUNNER_TEMP/iaeste-khujand/assets"
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: >-
+          npx --yes wrangler@4.151.0 pages deploy "$RUNNER_TEMP/iaeste-khujand"
+          --project-name=iaeste-khujand
+          --branch=main
+          --commit-hash="$GITHUB_SHA"
+          --commit-dirty=true

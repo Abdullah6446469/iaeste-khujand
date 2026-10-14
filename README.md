@@ -38,7 +38,15 @@ Save text files as UTF-8. Use `-Encoding utf8` when reading or writing them in P
 
 ## Publishing
 
-GitHub Pages serves the repository root. Include referenced assets when committing changes. Update the Open Graph URLs in `index.html` if the production domain changes.
+The production website is `https://iaeste-khujand.pages.dev/` on Cloudflare Pages.
+
+The Pages project uses Direct Upload with production branch `main`. GitHub Actions deploys the site automatically when changes are pushed to `main`; the workflow can also be started manually from the repository's Actions tab.
+
+The workflow in `.github/workflows/deploy-cloudflare.yml` checks JavaScript syntax, stages only the public website files, and publishes them with Wrangler. It requires repository Actions secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`. The deployment token needs only Cloudflare Pages Edit permission for the account hosting the site.
+
+For a manual fallback, upload `index.html`, `styles.css`, `mobile.css`, `main.js`, `globe.js`, `robots.txt`, `sitemap.xml`, and the complete `assets/` folder in Cloudflare's Workers & Pages dashboard. Keep `index.html` at the top level of the upload. No build step is needed.
+
+Include referenced assets when committing changes. If the production domain changes, update the canonical URL, Open Graph URLs, and `WebSite` structured data in `index.html`, plus the URLs in `robots.txt` and `sitemap.xml`.
 
 ## Checks
 
