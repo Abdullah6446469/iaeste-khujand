@@ -1,4 +1,4 @@
-/* Phone layout only. The media guard also protects desktop if this file is reused. */
+/* Phone overrides (up to 700px). */
 @media (max-width: 700px) {
   :root {
     --gutter: 20px;
@@ -15,7 +15,6 @@
   h2 { max-inline-size: none; line-height: 1.25; }
   .button { min-height: 52px; font-size: .9375rem; font-weight: 600; box-shadow: none; }
 
-  /* A stable, compact header keeps navigation within reach while reading. */
   .site-header,
   .site-header.is-scrolled,
   .site-header.is-hidden {
@@ -49,7 +48,6 @@
   .site-nav > a:not(.button) { min-height: 52px; padding: 14px 16px; font-size: .9375rem; }
   .nav-cta { min-height: 52px; margin-top: 6px; }
 
-  /* The complete official name stays readable, with one clear primary action. */
   .hero { padding-bottom: 0; }
   .hero-copy { padding-block: 40px 36px; }
   .hero h1 { max-inline-size: 24ch; margin: 0; font-size: clamp(1.6875rem, 7.1vw, 2.25rem); line-height: 1.3; letter-spacing: -.035em; text-wrap: pretty; }
@@ -63,7 +61,6 @@
   .hero-intro .hero-apply { justify-content: center; gap: 10px; min-height: 48px; padding: 12px 20px; border-color: transparent; background: transparent; box-shadow: none; backdrop-filter: none; }
   .button-arrow { width: 36px; height: 36px; }
 
-  /* Compact facts and benefits remove the long gaps between useful content. */
   .about-section { container-type: inline-size; padding-top: 40px; }
   .about-grid { gap: 16px; }
   .national-impact { align-items: start; margin-top: 24px; padding: 20px 16px; gap: 18px 12px; border-radius: var(--radius-md); background: var(--paper); }
@@ -84,7 +81,6 @@
   .section-heading > .section-description { margin-top: 12px; }
   .section-description { line-height: 1.65; }
 
-  /* Two equal touch targets communicate the selected internship format. */
   .programme-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; margin-bottom: 20px; padding: 4px; border-radius: 14px; background: var(--tint-strong); }
   .programme-tabs::after { display: none; }
   .programme-tabs button { justify-content: center; min-width: 0; min-height: 48px; padding: 10px 8px; border-radius: 10px; font-size: .875rem; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
@@ -100,7 +96,6 @@
   .check-list li { font-size: .9375rem; line-height: 1.6; }
   .programme-copy > .button { justify-content: space-between; width: 100%; padding-inline: 18px; }
 
-  /* The intake notice is the focal point; smaller steps support it. */
   .apply-layout { gap: 24px; }
   .apply-section .section-heading > .text-link { margin-top: 8px; }
   .application-notice { padding: 24px 20px; }
@@ -127,7 +122,6 @@
   .timeline-month { font-size: .875rem; line-height: 1.55; }
   .timeline h4 { margin: 0; font-size: .875rem; line-height: 1.55; }
 
-  /* The semantic table becomes a scannable list of document records. */
   .documents-header { gap: 12px; margin-bottom: 24px; }
   .documents-table-wrap { container-type: inline-size; overflow: visible; border-radius: 0; background: transparent; }
   .documents-table { table-layout: fixed; }
@@ -148,7 +142,6 @@
   .document-prepare { font-size: .8125rem; }
   .document-download:focus-visible { outline-offset: 2px; }
 
-  /* Keep city information on solid surfaces and let the photographs remain clear. */
   .city-section { padding-block: 48px; }
   .city-heading { justify-content: start; margin-bottom: 8px; }
   .city-heading > span { font-size: .8125rem; }
@@ -210,7 +203,6 @@
   .contact-details dt { grid-row: auto; font-size: .75rem; letter-spacing: .04em; }
   .contact-details a { display: flex; align-items: center; width: 100%; min-height: 48px; font-size: 1.125rem; letter-spacing: -.02em; }
   .contact-note { margin-top: 0; font-size: .8125rem; }
-  /* Hand phone users directly to Maps without an embedded scroll surface. */
   .contact-map { overflow: visible; background: transparent; box-shadow: none; }
   .contact-map iframe { display: none; }
   .map-open { position: static; justify-content: space-between; width: 100%; min-height: 52px; padding: 14px 20px; border: 1px solid var(--control-line); border-radius: 999px; background: transparent; color: var(--accent); box-shadow: none; font-size: .9375rem; font-weight: 600; }
@@ -229,7 +221,6 @@
   .lightbox { max-height: calc(100dvh - 24px); }
   .lightbox-bottom p { font-size: .8125rem; line-height: 1.6; }
 
-  /* Reading and tapping on a phone should not wait for decorative reveals. */
   .hero-letter, .hero-intro { animation: none; }
   .lightbox[open], .lightbox[open]::backdrop,
   .faq-list details[open] .faq-answer,
@@ -241,7 +232,7 @@
     .national-impact { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   }
 
-  /* Stack metadata when larger text leaves too little room beside a download. */
+  /* Stack document metadata when text scaling narrows the container. */
   @container (width < 17rem) {
     .documents-table tbody tr { grid-template-columns: max(22px, 1.5rem) minmax(0, 1fr); }
     .document-number { grid-row: 1 / 4; }

@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 344 344">
   <title>IAESTE</title>
-  <!-- Preserve the official emblem from the existing IAESTE logo. -->
   <defs>
     <clipPath id="emblem">
       <rect x="20" y="9" width="304" height="326" />

@@ -1,4 +1,3 @@
-/* Geographic globe, rendered locally without a graphics library or remote runtime. */
 "use strict";
 
 (() => {
@@ -14,15 +13,15 @@
   const RAD = Math.PI / 180;
   const radius = 275;
   const center = { x: 400, y: 343 };
-  const INTRO = 2800; // ms for the entrance sequence
-  const TAIL = 18; // segments in each travelling comet trail
-  const CYCLE = 1.3; // one journey (1.0) plus a short arrival pause
-  const RETURN_DELAY = 9000; // ms of stillness before an explored globe drifts back to Tajikistan
-  const FOLLOW_DIRECT = 210; // ms time-constant while the user steers
-  const FOLLOW_RETURN = 420; // a slower, calmer glide when returning home
+  const INTRO = 2800; // ms
+  const TAIL = 18; // trail segments
+  const CYCLE = 1.3; // Travel (1) plus arrival pause (.3).
+  const RETURN_DELAY = 9000; // idle time before return (ms)
+  const FOLLOW_DIRECT = 210; // steering time constant (ms)
+  const FOLLOW_RETURN = 420; // return time constant (ms)
   const MIN_LAT = -55;
   const MAX_LAT = 45;
-  // Light arrives from the upper left, in front of the globe.
+  // Light direction: upper left, towards the viewer.
   const light = [-.45, .55, .7];
   let data;
   let dots;
@@ -32,8 +31,8 @@
   let elapsed = 0;
   let swayStart = 0;
   let idleSince = 0;
-  let renderCost = 0; // smoothed milliseconds spent drawing one frame
-  let smoothRate = true; // whether drawing is cheap enough to run at 60 fps while idle
+  let renderCost = 0; // smoothed draw time (ms)
+  let smoothRate = true; // allow 60 fps at rest
   let follow = FOLLOW_DIRECT;
   let ready = false;
   let loading = false;
@@ -58,7 +57,7 @@
     return [Math.cos(lat * RAD) * Math.sin(lon * RAD), Math.sin(lat * RAD), Math.cos(lat * RAD) * Math.cos(lon * RAD)];
   }
   const origin = vector(69.622, 40.283);
-  // Illustrative connections; these are geographic destinations, not advertised vacancies.
+  // Illustrative geographic routes.
   const destinations = [
     ["London", -.12, 51.5], ["Berlin", 13.4, 52.52], ["Istanbul", 28.98, 41], ["Tokyo", 139.69, 35.68],
     ["Singapore", 103.82, 1.35], ["Sydney", 151.21, -33.87], ["New York", -74, 40.71], ["São Paulo", -46.63, -23.55],
@@ -86,7 +85,7 @@
     }) });
   }
 
-  // Gradients are independent of the canvas transform, so they are built once.
+  // Cache gradients; they do not depend on the canvas transform.
   function radial(x, y, inner, outer, stops) {
     const gradient = context.createRadialGradient(x, y, inner, x, y, outer);
     stops.forEach(([offset, color]) => gradient.addColorStop(offset, color));
@@ -99,10 +98,8 @@
     limb: radial(center.x, center.y, 0, radius, [[0, "rgba(8,32,40,0)"], [.6, "rgba(8,32,40,0)"], [1, "rgba(8,32,40,.46)"]]),
     glint: radial(315, 228, 0, 240, [[0, "rgba(255,255,255,.17)"], [.5, "rgba(255,255,255,.05)"], [1, "rgba(255,255,255,0)"]]),
     rim: radial(center.x, center.y, radius - 24, radius + 9, [[0, "rgba(160,214,226,0)"], [.72, "rgba(160,214,226,.2)"], [1, "rgba(160,214,226,0)"]]),
-    // Shade deepens away from the light, mirroring the glint on the opposite side.
     shade: radial(center.x - 110, center.y - 100, 150, 470, [[0, "rgba(8,32,40,0)"], [1, "rgba(8,32,40,.3)"]]),
   };
-  // A thin crescent of sunlit atmosphere along the limb facing the light.
   const crescentStart = 192 * RAD;
   const crescentEnd = 292 * RAD;
   const crescentFrom = [center.x + Math.cos(crescentStart) * radius, center.y + Math.sin(crescentStart) * radius];
@@ -144,12 +141,11 @@
     context.stroke();
   }
 
-  // Ambient sway is measured from swayStart so Home can ease back without a visual jump.
+  // Resettable sway avoids jumps when returning home.
   function swayLongitude() { return Math.sin((elapsed - swayStart) / 21000) * 24; }
   function swayLatitude() { return Math.sin((elapsed - swayStart) / 27000) * 3; }
 
   function drawGlobe(intro) {
-    // A soft ground shadow, atmosphere and a fine orbit give the globe depth without a card.
     context.save();
     context.translate(400, 666);
     context.scale(1, .14);
@@ -171,8 +167,7 @@
       line(meridian.points.map(project), meridian.equator ? "#edf3f221" : "#edf3f215", meridian.equator ? .8 : .65);
     }
 
-    // Batch land dots into eight light-and-depth bands rather than thousands of draw calls.
-    // Projection is inlined into typed arrays so no objects are allocated per dot per frame.
+    // Batch dots by lighting band and reuse typed arrays per frame.
     const dotCount = data.dots.length;
     for (let i = 0; i < dotCount; i++) {
       const v = data.dots[i];
@@ -203,7 +198,6 @@
     circle(center.x, center.y, radius + 9, paint.rim);
   }
 
-  // Tajikistan breathes gently; it fades at the horizon instead of popping.
   function drawCountry(intro) {
     const country = data.tajikistan.map(project);
     const depth = Math.min(...country.map(point => point.z));
@@ -242,12 +236,9 @@
     const arrival = (elapsed / 1000 * route.speed + route.phase) % CYCLE;
     const flying = settled && arrival < 1;
     const afterglow = settled && !flying ? (arrival - 1) / (CYCLE - 1) : 0;
-    // The route is "in use" while its comet travels and cools down once the arrival is acknowledged.
     const active = !settled ? 0 : flying ? smooth(arrival / .08) : 1 - smooth(afterglow * 1.4);
-    // The destination warms as the comet lands, stays lit through the pause, then fades.
     const warmth = !settled ? 0 : flying ? smooth((arrival - .94) / .06) : 1 - smooth((afterglow - .6) / .4);
 
-    // Gentle ease at both ends makes each journey feel launched and received.
     let head = null;
     let i = 79;
     if (flying) {
@@ -260,7 +251,6 @@
       head = project(a.map((v, axis) => v + (b[axis] - v) * fraction));
     }
     if (active > .01) {
-      // The path already travelled glows behind the comet, so every journey reads as progress.
       const travelled = flying ? points.slice(0, i + 1) : drawn.slice();
       if (head) travelled.push(head);
       line(travelled, `rgba(255,255,255,${.5 * active})`, 1.5, p => visible(p) && !outside(p));
@@ -272,7 +262,6 @@
       circle(destination.x, destination.y, 5, null, "#edf3f250", .8);
       circle(destination.x, destination.y, 2 + .9 * warmth, "#edf3f2");
       if (arrival >= 1) {
-        // A ripple confirms each arrival before the next journey begins.
         circle(destination.x, destination.y, 5 + easeOut(afterglow) * 15, null, `rgba(237,243,242,${.7 * (1 - afterglow) ** 1.5})`, 1.1);
       }
       const alpha = warmth * smooth((destination.z - .1) / .22);
@@ -307,7 +296,7 @@
     context.globalAlpha = 1;
   }
 
-  // City names appear as each journey lands. They stay clear of one another and of the Tajikistan label.
+  // Avoid overlapping the origin and previously placed labels.
   function drawLabels() {
     if (!labels.length) return;
     labels.sort((a, b) => b.alpha - a.alpha);
@@ -361,7 +350,7 @@
     originLabel.style.top = `${point.y / 7.2}%`;
     originLabel.classList.toggle("is-hidden", !labelShown);
     originLabel.classList.toggle("label-left", flip);
-    // Footprint of the DOM label in canvas units, used to keep city names clear of it.
+    // Convert DOM label bounds to canvas coordinates for collision checks.
     originBox = labelShown && originSize.w
       ? { left: flip ? point.x - originSize.w - 4 : point.x - 4, right: flip ? point.x + 4 : point.x + originSize.w + 4, top: point.y - originSize.h / 2 - 4, bottom: point.y + originSize.h / 2 + 4 }
       : null;
@@ -371,7 +360,6 @@
     if (!ready || !globeLayout.matches) return;
     const intro = reducedMotion.matches ? 1 : Math.min(1, elapsed / INTRO);
     const settle = easeOut(intro);
-    // The globe spins into place on first view, then settles into its ambient sway.
     const yaw = (44 + longitude + swayLongitude() - (1 - settle) * 70) * RAD;
     const pitch = (20 + latitude + swayLatitude() - (1 - settle) * 8) * RAD;
     yawSin = Math.sin(yaw); yawCos = Math.cos(yaw);
@@ -384,11 +372,10 @@
     drawLabels();
   }
 
-  // Pointer and keyboard input set a target; the globe eases towards it, with momentum after a drag.
   function settling() {
     return Math.abs(targetLongitude - longitude) > .02 || Math.abs(targetLatitude - latitude) > .02;
   }
-  // Fold the current sway into the offset, restart the sway clock, then ease to Tajikistan.
+  // Preserve the current rotation before resetting the sway clock.
   function goHome() {
     longitude = ((longitude + swayLongitude() + 180) % 360 + 360) % 360 - 180;
     latitude = clamp(latitude + swayLatitude(), MIN_LAT, MAX_LAT);
@@ -402,7 +389,6 @@
   }
   function update(dt) {
     if (dragging || !dt) return;
-    // After a quiet spell the globe drifts back, so the hero always returns to its subject.
     if (explored() && !settling() && elapsed - idleSince > RETURN_DELAY) goHome();
     const k = 1 - Math.exp(-dt / follow);
     longitude += (targetLongitude - longitude) * k;
@@ -413,8 +399,7 @@
   function tick(time) {
     frame = 0;
     if (!shouldAnimate()) { lastFrame = 0; return; }
-    // Capped at 60 fps while the globe is being moved or introduced, or whenever drawing is cheap.
-    // Slower devices fall back to a calmer 30 fps at rest; the gap between thresholds avoids flip-flopping.
+    // Hysteresis prevents repeated switching between 30 and 60 fps.
     const active = dragging || settling() || (!reducedMotion.matches && elapsed < INTRO);
     if (renderCost > 6) smoothRate = false;
     else if (renderCost < 4) smoothRate = true;
@@ -435,7 +420,6 @@
     frame = 0; lastFrame = 0;
     if (shouldAnimate()) frame = requestAnimationFrame(tick);
   }
-  // The Tajikistan label is real text; measure it so city names can avoid it.
   function measureLabels() {
     const bounds = stage.getBoundingClientRect();
     const heading = originLabel.querySelector("strong");
@@ -483,7 +467,7 @@
     const nextLat = clamp(dragging.latitude + (event.clientY - dragging.y) * sensitivity * .6, MIN_LAT, MAX_LAT);
     const dt = event.timeStamp - dragging.time;
     if (dt > 0) {
-      // Smoothed release velocity in degrees per second.
+      // Release velocity is measured in degrees per second.
       dragging.velocityLon = lerp(dragging.velocityLon, (nextLon - longitude) / dt * 1000, .35);
       dragging.velocityLat = lerp(dragging.velocityLat, (nextLat - latitude) / dt * 1000, .35);
     }
@@ -494,7 +478,7 @@
   });
   function endDrag(event) {
     if (dragging && event && event.type === "pointerup" && event.timeStamp - dragging.moved < 90) {
-      // Release with momentum; stale motion from a held pointer is ignored.
+      // Ignore stale pointer movement when releasing momentum.
       targetLongitude = longitude + dragging.velocityLon * .21;
       targetLatitude = clamp(latitude + dragging.velocityLat * .21, MIN_LAT, MAX_LAT);
     }
@@ -543,7 +527,7 @@
       syncAnimation();
     })
     .catch(() => {
-      // Keep the geographic SVG and all content readable if Canvas or data loading fails.
+      // Preserve the static SVG if canvas data cannot load.
       loading = false;
     });
   }

@@ -6,7 +6,6 @@ const menuButton = document.querySelector(".menu-button");
 const nav = document.querySelector(".site-nav");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-// Reveal every letter once, preserving whole words and one accessible heading.
 const heroTitle = document.getElementById("hero-title");
 if (heroTitle && !reducedMotion.matches) {
   heroTitle.querySelectorAll(".hero-line").forEach((line, lineIndex) => {
@@ -78,7 +77,6 @@ if (menuButton && nav) {
   mobileLayout.addEventListener("change", () => closeMenu());
 }
 
-// Enhance the two readable programme sections with standard keyboard-operated tabs.
 const tabList = document.querySelector(".programme-tabs");
 if (tabList) {
   const tabs = [...tabList.querySelectorAll('[role="tab"]')];
@@ -128,7 +126,6 @@ if (tabList) {
   }
 }
 
-// Native dialog supplies modal semantics, focus containment and Escape handling.
 const dialog = document.getElementById("gallery-dialog");
 const photos = [...document.querySelectorAll(".gallery-item")];
 if (dialog && typeof dialog.showModal === "function") {
@@ -228,7 +225,6 @@ if (dialog && typeof dialog.showModal === "function") {
   });
 }
 
-// The photo sequence works with touch, native scrolling, buttons and arrow keys.
 const galleryRail = document.querySelector(".gallery-grid");
 const galleryNavigation = document.querySelector(".gallery-navigation");
 if (galleryRail && galleryNavigation) {
@@ -282,7 +278,6 @@ if (galleryRail && galleryNavigation) {
   refreshGallery();
 }
 
-// A native scrolling strip keeps logos clickable and works with touch and keyboards.
 (() => {
   const section = document.querySelector(".partners-section");
   const viewport = section?.querySelector(".partners-viewport");
@@ -335,7 +330,6 @@ if (galleryRail && galleryNavigation) {
       copy.setAttribute("aria-hidden", "true");
       copy.removeAttribute("aria-label");
       copy.querySelectorAll("a").forEach(link => { link.tabIndex = -1; });
-      // The repeated visual sequence remains pointer-clickable but adds no keyboard stops.
       track.append(copy);
     }
     section.classList.toggle("is-scrolling", animate);
@@ -372,7 +366,6 @@ if (galleryRail && galleryNavigation) {
     position = loopWidth ? viewport.scrollLeft % loopWidth : 0;
     sync();
   });
-  // Let a swipe settle, then resume automatically without a playback control.
   function resumeAfterInteraction() {
     clearTimeout(interactionTimer);
     interactionTimer = setTimeout(() => {
@@ -428,7 +421,7 @@ let scrollDirection = 0;
 let directionDistance = 0;
 let navigationHoldUntil = performance.now() + 1200;
 
-// Accumulate deliberate movement so trackpad noise cannot flicker the header.
+// Accumulate scroll distance to ignore trackpad jitter.
 function updateScroll() {
   scrollQueued = false;
   const scrollY = Math.max(0, Math.min(window.scrollY,
@@ -441,7 +434,7 @@ function updateScroll() {
     scrollDirection = direction;
   }
   if (header) {
-    // Separate thresholds avoid a size change oscillating near the top.
+    // Separate enter/exit thresholds prevent header oscillation.
     const compact = header.classList.contains("is-scrolled") ? scrollY > 24 : scrollY > 64;
     header.classList.toggle("is-scrolled", compact);
     const keepVisible = scrollY < 200 || reducedMotion.matches ||
@@ -486,7 +479,7 @@ header?.addEventListener("focusin", () => {
 });
 header?.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", () => {
-    // Keep the destination and selected link visible through native anchor scrolling.
+    // Keep the header visible during anchor navigation.
     navigationHoldUntil = performance.now() + 1200;
     header.classList.remove("is-hidden");
     directionDistance = 0;
@@ -494,7 +487,6 @@ header?.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 updateScroll();
 
-// Reveal each composition once; keep individual items staggered within their group.
 if ("IntersectionObserver" in window && !reducedMotion.matches) {
   const revealGroups = [
     ".about-grid > div", ".impact-intro", ".impact-stat", ".benefit-card", ".section-heading",
@@ -521,7 +513,7 @@ if ("IntersectionObserver" in window && !reducedMotion.matches) {
   });
   document.documentElement.classList.add("motion-ready");
 
-  // Keyboard focus must never land on an invisible control.
+  // Reveal focused content before its scroll trigger.
   document.addEventListener("focusin", (event) => {
     const parent = event.target.closest(".reveal");
     if (parent) {
@@ -543,7 +535,6 @@ if (year)
     timeZone: "Asia/Tashkent",
   }).format(new Date());
 
-// Buttons fill from the point where the pointer enters or leaves, so the hover feels directional.
 document.querySelectorAll(".button").forEach((button) => {
   const setOrigin = (event) => {
     const box = button.getBoundingClientRect();

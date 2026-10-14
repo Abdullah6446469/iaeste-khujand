@@ -1,4 +1,3 @@
-/* IAESTE Khujand — the existing visual identity with cool mint-gray surfaces. */
 :root {
   --accent: #205464;
   --accent-dark: #153d49;
@@ -62,7 +61,6 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; color: var(--accent); font-size: .75rem; font-weight: 600; line-height: 1.6; letter-spacing: .1em; text-transform: uppercase; }
 .eyebrow::before { content: none; }
 .button { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; justify-content: center; align-items: center; gap: 26px; min-height: 52px; padding: 14px 22px; border: 1px solid transparent; border-radius: 999px; font-size: 13px; font-weight: 500; line-height: 1.5; transition: color .3s, border-color .3s, box-shadow .4s var(--ease), translate .4s var(--ease), scale .2s var(--ease); }
-/* A fill that expands from the pointer's entry point; keyboard focus fills from the base. */
 .button::before { content: ""; position: absolute; z-index: -1; inset: 0; border-radius: inherit; clip-path: circle(0 at var(--pointer-x, 50%) var(--pointer-y, 110%)); transition: clip-path .55s var(--ease); }
 .button-primary { color: white; background: var(--accent); border: 1px solid #ffffff26; box-shadow: inset 0 1px 0 #ffffff33, 0 1px 2px #153d4922, 0 8px 18px -10px #205464a0; }
 .button-primary::before { background: var(--accent-dark); }
@@ -77,7 +75,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .section-description { max-width: 34ch; padding-top: .25em; color: var(--muted); font-size: var(--text-body); line-height: 1.75; }
 .tag { display: inline-flex; align-items: center; min-height: 28px; color: var(--muted); font-size: var(--text-caption); line-height: 1.5; }
 
-/* The header keeps its layout space while the inner surface compacts on scroll. */
+/* Header */
 .site-header { position: sticky; z-index: 30; top: 0; height: var(--header-height); background: var(--surface); transition: transform .4s var(--ease), background-color .3s; }
 .site-header.is-scrolled { background: transparent; pointer-events: none; }
 .site-header.is-hidden { transform: translateY(calc(-100% - 20px)); }
@@ -111,7 +109,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .menu-button[aria-expanded="true"] .menu-icon > span:first-child { transform: translateY(3px) rotate(45deg); }
 .menu-button[aria-expanded="true"] .menu-icon > span:last-child { transform: translateY(-3px) rotate(-45deg); }
 
-/* A geographic globe connects the local committee to the wider world. */
+/* Hero */
 .hero { overflow: clip; padding-bottom: 22px; background: var(--paper); }
 .hero-world { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); align-items: center; gap: 32px; padding-block: 10px 0; }
 .hero-copy { position: relative; z-index: 1; padding-block: 44px 64px; }
@@ -150,7 +148,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .round-arrow { display: grid; place-items: center; width: 58px; height: 58px; flex: none; border: 1px solid currentColor; border-radius: 50%; color: var(--accent); transition: transform .55s var(--ease), color .3s, background .3s; }
 .round-arrow .icon { width: 23px; height: 23px; }
 
-/* An editorial introduction with the factual national figures separated from local support. */
+/* About */
 .about-section { padding-bottom: 0; background: var(--surface); }
 .about-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: start; gap: 32px clamp(32px, 5vw, 72px); }
 .about-grid h2 { max-inline-size: 23ch; }
@@ -171,8 +169,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .benefit-card h3 { font-size: var(--text-feature); transition: transform .5s var(--ease); }
 .benefit-card p { max-inline-size: 48ch; color: var(--muted); font-size: var(--text-body); }
 
-
-/* Programme tabs select a complete, asymmetrical feature. */
+/* Internships */
 .opportunities-section { background: var(--paper); }
 .programme-tabs { position: relative; display: flex; gap: 40px; margin-bottom: 38px; }
 .programme-tabs::after { content: ''; position: absolute; bottom: -1px; left: 0; width: var(--tab-width, 0px); height: 2px; background: var(--accent); transform: translateX(var(--tab-left, 0px)); transition: width .5s var(--ease), transform .5s var(--ease); }
@@ -193,8 +190,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .check-list li { display: flex; align-items: start; gap: 10px; font-size: var(--text-small); }
 .check-list .icon { width: 17px; height: 17px; margin-top: 2px; color: var(--accent); }
 
-
-/* Large step numbers and a sticky introduction give the application sequence its own rhythm. */
+/* Application */
 .apply-section { --apply-gap: 64px; background: var(--accent); color: white; }
 .apply-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: var(--apply-gap) 90px; align-items: start; }
 .apply-section .section-heading { position: sticky; top: 130px; display: block; grid-row: 1 / span 2; margin: 0; }
@@ -211,7 +207,6 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .application-notice p > a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .application-requirements { display: grid; gap: 10px; margin: 20px 0; padding-left: 20px; color: var(--muted); font-size: var(--text-small); line-height: 1.75; }
 .application-requirements li::marker { color: var(--accent); }
-.application-notice > .application-chances { color: var(--accent-dark); font-weight: 500; }
 .application-notice > .button { margin-top: 24px; gap: 24px; font-size: var(--text-small); }
 .application-notice :focus-visible { outline-color: var(--accent); }
 .process-grid { display: grid; grid-column: 2; list-style: none; margin: 0; padding: 0; }
@@ -230,8 +225,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .timeline-month { font-size: var(--text-small); font-weight: 600; }
 .timeline h4 { margin-top: 8px; color: #ffffffcc; font-size: var(--text-caption); font-weight: 400; line-height: 1.7; }
 
-
-/* The national nomination list stays visible, with direct local downloads. */
+/* Documents */
 .documents-section { background: var(--surface); }
 .documents-header { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .7fr); align-items: start; gap: 48px; margin-bottom: clamp(28px, 4vw, 48px); }
 .documents-guidance { max-inline-size: 42ch; padding-top: .25em; }
@@ -261,7 +255,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .document-request:hover { text-decoration: underline; text-underline-offset: 4px; }
 .document-prepare { color: var(--muted); font-size: var(--text-caption); }
 
-/* A cinematic city feature and a horizontal gallery break the column rhythm. */
+/* Khujand and gallery */
 .city-section { padding-block: 72px; background: var(--paper); }
 .city-heading { display: flex; align-items: center; justify-content: flex-end; gap: 24px; margin-bottom: 24px; }
 .city-heading > span { color: var(--muted); font-size: 11px; }
@@ -300,8 +294,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .gallery-item > span { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 18px; font-size: 15px; }
 .gallery-item > span > span { display: grid; place-items: center; width: 32px; height: 32px; flex: none; color: var(--accent); font-size: 24px; transition: transform .45s var(--ease); }
 
-
-/* The archive is a publication index, not another card grid. */
+/* News */
 .news-section { background: var(--paper); }
 .news-grid { display: grid; }
 .news-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 46px; align-items: center; min-width: 0; padding-block: 30px; }
@@ -315,7 +308,6 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .news-copy .text-link { grid-column: 2; grid-row: 1 / 3; display: grid; place-items: center; width: 58px; height: 58px; border: 1px solid var(--control-line); border-radius: 50%; font-size: 0; color: var(--accent); transition: color .3s, background .3s, transform .5s var(--ease); }
 .news-copy .text-link > span { font-size: 24px; }
 .news-copy .text-link > .icon { width: 22px; height: 22px; }
-
 
 .partners-section { overflow: clip; padding-block: 58px 54px; background: var(--surface); --partner-item-width: clamp(200px, 20vw, 290px); }
 .partners-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-bottom: 26px; }
@@ -340,7 +332,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .partners-section.is-scrolling .partner-grid { display: flex; flex: none; width: max(100vw, calc(var(--partner-count, 5) * var(--partner-item-width))); }
 .partners-section.is-scrolling .partner-grid > li { flex: 1 0 var(--partner-item-width); }
 
-/* Native FAQ disclosures; contact becomes the page's visual conclusion. */
+/* FAQ and contact */
 .faq-section { background: var(--surface); }
 .faq-grid { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: 96px; }
 .faq-grid > div:first-child { position: sticky; top: 126px; align-self: start; }
@@ -361,17 +353,14 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: start; gap: 48px 80px; }
 .contact-copy h2 { max-inline-size: 19ch; color: var(--accent); }
 .contact-copy > .button { margin-top: 28px; }
-/* Contact details: one labelled row per channel, separated by hairlines. */
 .contact-details { margin: 0; border-top: 1px solid #20546426; }
 .contact-details > div { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: baseline; gap: 0 20px; padding-block: 26px; border-bottom: 1px solid #20546426; }
 .contact-details dt { grid-row: 1 / span 2; color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
 .contact-details dd { margin: 0; min-width: 0; }
 .contact-details a { color: var(--ink); font-size: clamp(19px, 2vw, 26px); font-weight: 500; letter-spacing: -.03em; overflow-wrap: anywhere; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 6px; transition: color .25s var(--ease), text-decoration-color .25s var(--ease); }
 .contact-note { margin-top: 6px; color: var(--muted); font-size: 13px; }
-/* Map: a plain full-width embed; Google already shows the Plus Code and directions. */
 .contact-map { position: relative; grid-column: 1 / -1; overflow: hidden; border-radius: var(--radius-lg); background: var(--tint-strong); box-shadow: 0 30px 60px -38px #153d4973, 0 2px 8px #153d4914; }
 .contact-map iframe { display: block; width: 100%; height: calc(clamp(320px, 32vw, 440px) + 50px); margin-top: -50px; border: 0; }
-/* Floating pill link to open the full map. */
 .map-open { position: absolute; z-index: 2; top: 16px; left: 16px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; border-radius: 999px; background: var(--surface); color: var(--accent); font-size: 13.5px; font-weight: 500; line-height: 1.4; box-shadow: 0 4px 14px #153d4926, 0 1px 3px #153d4914; border: 1px solid #ffffffd0; transition: color .25s var(--ease), box-shadow .35s var(--ease), transform .35s var(--ease); }
 .map-open .icon { width: 14px; height: 14px; }
 .map-open:hover { color: var(--accent-dark); box-shadow: 0 8px 20px #153d4933, 0 2px 6px #153d491a; transform: translateY(-1px); }
@@ -391,7 +380,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .back-to-top { display: inline-flex; align-items: center; gap: 14px; min-height: 44px; white-space: nowrap; }
 .back-to-top > span { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid #ffffff50; border-radius: 50%; }
 
-/* Gallery viewer. */
+/* Gallery dialog */
 .lightbox { width: min(1000px, calc(100% - 40px)); max-height: calc(100dvh - 40px); padding: 24px; border: 1px solid #ffffff50; border-radius: var(--radius-lg); background: var(--footer); color: white; overflow: auto; }
 .lightbox::backdrop { background: #20383ff0; backdrop-filter: blur(8px); }
 .lightbox-inner { position: relative; padding-top: 56px; }
@@ -404,7 +393,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .lightbox button .icon { transition: translate .4s var(--ease); }
 .lightbox-prev .icon { transform: rotate(180deg); }
 
-/* Cursor states: the native pointer always says what a click or drag will do. */
+/* Cursors */
 .button, summary, .programme-tabs button, .gallery-navigation button, .lightbox button, .menu-button, .world-stage { -webkit-user-select: none; user-select: none; }
 [role="tab"], summary, .document-download, .document-request { cursor: pointer; }
 .programme-tabs button[aria-selected="true"] { cursor: default; }
@@ -413,7 +402,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .lightbox::backdrop { cursor: zoom-out; }
 .world-stage.is-dragging, .world-stage.is-dragging * { cursor: grabbing; }
 
-/* Staggered type and deliberate interaction motion. Globe motion is managed in globe.js. */
+/* Motion */
 .reveal { transition: opacity .8s var(--ease), translate .9s var(--ease); transition-delay: var(--reveal-delay, 0ms); }
 .motion-ready .reveal:not(.is-visible) { opacity: 0; translate: 0 38px; }
 .motion-ready .reveal.is-visible, .motion-ready .reveal:focus-within { opacity: 1; translate: 0 0; }
@@ -687,7 +676,6 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
   .hero-intro .hero-apply { padding: 12px 14px; gap: 8px; }
   .button-arrow { width: 32px; height: 32px; }
 }
-
 
 @media (max-width: 960px) {
   .documents-header { gap: 32px; }
