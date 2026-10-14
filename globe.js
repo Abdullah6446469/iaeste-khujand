@@ -329,7 +329,7 @@
       context.beginPath();
       if (context.roundRect) context.roundRect(left, label.y - height / 2, width, height, 3);
       else context.rect(left, label.y - height / 2, width, height);
-      context.fillStyle = "rgba(245,246,244,.95)";
+      context.fillStyle = "rgba(237,244,243,.95)";
       context.fill();
       context.strokeStyle = "rgba(32,84,100,.14)";
       context.lineWidth = 1;
