@@ -12,6 +12,10 @@ python -m http.server 4173 --bind 127.0.0.1
 
 Open [the local preview](http://127.0.0.1:4173/).
 
+## Text encoding
+
+Save source files as UTF-8, as specified in `.editorconfig`. When editing from PowerShell, explicitly use `-Encoding utf8` when reading and writing files. HTML uses character references for punctuation and symbols, and JavaScript uses Unicode escapes for dynamic gallery captions, so these characters survive tools that default to a legacy encoding.
+
 ## Design and content
 
 The original blue-green, white, off-white and dark text palette is preserved. The typography combines upright Manrope headings with Inter body text, consistent semibold emphasis, tabular numerals and comfortable spacing. An animated geographic globe appears on larger screens alongside varied section compositions. Below 768 px, the hero uses a single column of copy and actions with no globe or globe asset downloads.
@@ -21,12 +25,13 @@ The application journey sits on the existing blue-green accent, with a sticky in
 
 The documents section is an always-visible table with the same twelve requirements, order and language column as iaeste.tj. Six verified official DOCX/PDF forms are hosted unchanged under `assets/documents/` and download directly from this site. The broken official liability-policy download is replaced with a request link to the committee. Personal documents are prepared by the student; no files are uploaded. All five partner marks remain in their original colours.
 
-Motion includes staggered title entrances, globe rotation and travelling connections, one-time section reveals, application-step reveals, a moving internship underline, gallery sliding, photo hover feedback and native disclosure transitions in supported browsers. The globe always animates while visible on desktop, without playback or reset buttons. Reduced-motion preferences disable CSS animations, transitions, smooth scrolling and decorative hover movement elsewhere on the page. Keyboard focus reveals controls immediately.
+Motion includes staggered title entrances, globe rotation, travelling connections with city-name arrival labels and idle auto-return to Tajikistan, one-time section reveals, application-step reveals, a moving internship underline, gallery sliding, photo hover feedback and native disclosure transitions in supported browsers. The globe always animates while visible on desktop, without playback or reset buttons. Reduced-motion preferences disable CSS animations, transitions, smooth scrolling and decorative hover movement elsewhere on the page. Keyboard focus reveals controls immediately.
 
 - Internship tabs support arrow keys, Home and End.
 - The gallery supports previous/next, arrow keys, Escape and focus restoration.
 - The horizontal photo sequence supports native touch scrolling, navigation buttons, an updating counter and arrow keys when focused.
 - Mobile navigation closes after a destination, Escape or outside focus.
+- The header compacts into a floating bar after scrolling, hides on deliberate downward movement and returns on upward movement. Its layout space stays constant. Keyboard focus reveals it immediately; an open menu and reduced-motion preference keep it visible. Navigation links highlight the current section and the mobile dropdown fits short viewports.
 - Essential sections, both internship formats, native disclosures and form links remain available without JavaScript.
 - Photography, logos and favicon are local; Google Fonts has system fallbacks.
 
@@ -44,7 +49,7 @@ Primary source: [IAESTE Tajikistan](https://www.iaeste.tj/), checked on **13 Oct
 - The two national news items are explicitly archives. The Khujand cultural programme is labelled **2024 archive**, and students are directed to the committee for current activities.
 - All five unique partner marks listed by the national committee are included: Babilon-T, ACTED, the National Academy of Sciences of Tajikistan, Alif and ARKON Education Group. The heading is “Our partners,” with no subtitle or source link in the section. The five linked logos scroll continuously with a repeated visual sequence; that copy adds no screen-reader announcements or keyboard stops.
 - The Babilon-T mark now links to its verified official website; the source pairs that mark with a Babilon-Mobile link. ARKON’s link is functional here despite the source’s `hre` attribute typo.
-- Contact uses the verified Khujand telephone **+992 92 773 50 05** and national email **tajikistan@iaeste.org**. No Khujand office address or response time is assumed.
+- Contact uses the verified Khujand telephone **+992 92 773 50 05** and national email **tajikistan@iaeste.org**. No Khujand office address or response time is assumed; the map marks only the supplied Plus Code **7JHH+3X6** (Khujand, Tajikistan) via a lazy-loaded Google Maps embed.
 
 The source’s [2024 Khujand cultural programme](https://www.iaeste.tj/media/CP-2024_LC-Khujand.pdf) informs the cultural content.
 
@@ -75,6 +80,8 @@ Creative Commons credits, licences and crop notices appear on the page. National
 
 ## Verification
 
+Text encoding correction checked locally on 14 October 2026: repaired punctuation, arrows, accented letters, metadata and gallery captions. Desktop and 390 px phone checks confirmed clean FAQ and footer text, working FAQ disclosures and photo navigation, and no browser warnings or errors. All source text passed a UTF-8 and corruption scan; HTML structure, internal anchors, local assets, JavaScript syntax and Git whitespace checks passed.
+
 Hero and documents update checked locally on 13 October 2026:
 
 - Removed the requested hero slogans; the opening copy now consists of the title and actions.
@@ -94,6 +101,7 @@ Hero and documents update checked locally on 13 October 2026:
 - Removed Яхмоси 33 from the displayed partner network and changed the desktop grid to five columns.
 - Replaced the static partner row with an automatic continuous strip, without a playback button. Hover and keyboard focus stop movement; touch and horizontal wheel gestures take temporary control, with automatic resume after scrolling settles. Animation also stops offscreen or in a hidden tab. Reduced motion and no JavaScript retain a static, fully visible partner grid.
 - Verified partner loop wraparound, keyboard focus visibility and native horizontal scrolling. The strip has no page overflow at 320, 390 or 1280 px.
+- Globe refinement checked in headless Chrome on 14 October 2026: directional shading and atmosphere crescent, highlighted travelled arcs, lit destinations with non-overlapping city labels, allocation-free dot projection, adaptive 60/30 fps pacing, and automatic return to Tajikistan after a drag. No console errors.
 - Checked HTML nesting, unique IDs, internal links and local asset paths. JavaScript syntax and Git whitespace checks passed; browser diagnostics reported no warnings or errors.
 
 The earlier gallery, internship-tab and mobile-navigation interaction checks are recorded in the previous design review. This update changed the hero copy, document downloads, application notice and partner list.

@@ -9,10 +9,10 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 // Reveal every letter once, preserving whole words and one accessible heading.
 const heroTitle = document.getElementById("hero-title");
 if (heroTitle && !reducedMotion.matches) {
-  let letterIndex = 0;
-  heroTitle.querySelectorAll(".hero-line").forEach((line) => {
+  heroTitle.querySelectorAll(".hero-line").forEach((line, lineIndex) => {
     const source = line.querySelector("em") || line;
     const content = document.createDocumentFragment();
+    let charIndexInLine = 0;
     source.textContent.split(/(\s+)/).forEach((segment) => {
       if (!segment) return;
       if (/^\s+$/.test(segment)) {
@@ -25,7 +25,8 @@ if (heroTitle && !reducedMotion.matches) {
         const letter = document.createElement("span");
         letter.className = "hero-letter";
         letter.textContent = character;
-        letter.style.setProperty("--letter-delay", `${letterIndex++ * 13}ms`);
+        const delay = (lineIndex * 150) + (charIndexInLine++ * 12);
+        letter.style.setProperty("--letter-delay", `${delay}ms`);
         word.append(letter);
       });
       content.append(word);
@@ -39,6 +40,7 @@ function closeMenu(restoreFocus = false) {
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open navigation");
   nav.classList.remove("is-open");
+  header?.classList.remove("menu-open");
   if (restoreFocus) menuButton.focus();
 }
 
@@ -53,6 +55,8 @@ if (menuButton && nav) {
       opening ? "Close navigation" : "Open navigation",
     );
     nav.classList.toggle("is-open", opening);
+    header?.classList.toggle("menu-open", opening);
+    header?.classList.remove("is-hidden");
   });
   nav
     .querySelectorAll("a")
@@ -138,7 +142,7 @@ if (dialog && typeof dialog.showModal === "function") {
     const selected = current;
     const token = ++request;
     const photo = photos[selected];
-    caption.textContent = "Loading photo…";
+    caption.textContent = "Loading photo\u2026";
     image.setAttribute("aria-busy", "true");
     try {
       const replacement = new Image();
@@ -153,7 +157,7 @@ if (dialog && typeof dialog.showModal === "function") {
         String(selected + 1).padStart(2, "0") +
         " / " +
         String(photos.length).padStart(2, "0") +
-        " — " +
+        " \u2014 " +
         photo.dataset.caption;
     } catch {
       if (token === request)
@@ -419,15 +423,43 @@ const navSections = navLinks
   .map((link) => document.querySelector(link.hash))
   .filter(Boolean);
 let scrollQueued = false;
+let previousScrollY = Math.max(0, window.scrollY);
+let scrollDirection = 0;
+let directionDistance = 0;
+let navigationHoldUntil = performance.now() + 1200;
+
+// Accumulate deliberate movement so trackpad noise cannot flicker the header.
 function updateScroll() {
   scrollQueued = false;
+  const scrollY = Math.max(0, Math.min(window.scrollY,
+    document.documentElement.scrollHeight - window.innerHeight));
+  const delta = scrollY - previousScrollY;
+  previousScrollY = scrollY;
+  if (delta !== 0) {
+    const direction = Math.sign(delta);
+    directionDistance = direction === scrollDirection ? directionDistance + Math.abs(delta) : Math.abs(delta);
+    scrollDirection = direction;
+  }
   if (header) {
-    header.classList.toggle("is-scrolled", window.scrollY > 16);
+    // Separate thresholds avoid a size change oscillating near the top.
+    const compact = header.classList.contains("is-scrolled") ? scrollY > 24 : scrollY > 64;
+    header.classList.toggle("is-scrolled", compact);
+    const keepVisible = scrollY < 200 || reducedMotion.matches ||
+      header.classList.contains("menu-open") || header.querySelector(":focus-visible") ||
+      performance.now() < navigationHoldUntil;
+    if (keepVisible) {
+      header.classList.remove("is-hidden");
+      directionDistance = 0;
+    } else if (scrollDirection < 0 && directionDistance >= 12) {
+      header.classList.remove("is-hidden");
+    } else if (scrollDirection > 0 && directionDistance >= 48) {
+      header.classList.add("is-hidden");
+    }
   }
   let active;
   for (const section of navSections) {
     const bounds = section.getBoundingClientRect();
-    if (bounds.top <= 160 && bounds.bottom > 160) active = section.id;
+    if (bounds.top <= 104 && bounds.bottom > 104) active = section.id;
   }
   navLinks.forEach((link) => {
     if (link.hash === "#" + active)
@@ -442,6 +474,24 @@ function queueScroll() {
 }
 window.addEventListener("scroll", queueScroll, { passive: true });
 window.addEventListener("resize", queueScroll);
+window.addEventListener("pageshow", () => {
+  navigationHoldUntil = performance.now() + 1200;
+  directionDistance = 0;
+  queueScroll();
+});
+reducedMotion.addEventListener("change", queueScroll);
+header?.addEventListener("focusin", () => {
+  header.classList.remove("is-hidden");
+  directionDistance = 0;
+});
+header?.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    // Keep the destination and selected link visible through native anchor scrolling.
+    navigationHoldUntil = performance.now() + 1200;
+    header.classList.remove("is-hidden");
+    directionDistance = 0;
+  });
+});
 updateScroll();
 
 // Reveal each composition once; keep individual items staggered within their group.
@@ -450,7 +500,7 @@ if ("IntersectionObserver" in window && !reducedMotion.matches) {
     ".about-grid > div", ".impact-intro", ".impact-stat", ".benefit-card", ".section-heading",
     ".programme-panel", ".process-grid > li", ".timeline-block", ".documents-intro",
     ".documents-header", ".city-scene", ".city-points", ".gallery-grid", ".news-card",
-    ".partners-heading", ".faq-grid > div", ".contact-grid > div",
+    ".partners-heading", ".faq-grid > div", ".contact-grid > div", ".contact-details",
   ];
   const elements = [...document.querySelectorAll(revealGroups.join(","))];
   const observer = new IntersectionObserver((entries) => {

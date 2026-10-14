@@ -10,7 +10,7 @@
     />
     <meta
       property="og:title"
-      content="IAESTE Khujand — International Technical Internships"
+      content="IAESTE KHUJAND &mdash; International Technical Internships"
     />
     <meta
       property="og:description"
@@ -25,8 +25,8 @@
       property="og:image"
       content="https://abdullah6446469.github.io/iaeste-khujand/assets/gallery-3.webp"
     />
-    <title>IAESTE Khujand — International Technical Internships</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <title>IAESTE KHUJAND &mdash; International Technical Internships</title>
+    <link rel="icon" href="assets/favicon.svg?v=3" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -34,9 +34,9 @@
       rel="stylesheet"
     />
     <link rel="preload" as="fetch" href="assets/globe-land.json" crossorigin media="(min-width: 768px)" />
-    <link rel="stylesheet" href="styles.css?v=46" />
-    <script src="main.js?v=26" defer></script>
-    <script src="globe.js?v=5" defer></script>
+    <link rel="stylesheet" href="styles.css?v=50" />
+    <script src="main.js?v=29" defer></script>
+    <script src="globe.js?v=6" defer></script>
   </head>
   <body id="top">
     <svg
@@ -116,7 +116,8 @@
           aria-label="Open navigation"
           hidden
         >
-          <span></span><span></span><span></span>
+          <span class="menu-label" aria-hidden="true">Menu</span>
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
         </button>
         <nav class="site-nav" id="site-nav" aria-label="Main navigation">
           <a href="#about">About</a><a href="#internships">Internships</a
@@ -124,9 +125,9 @@
           ><a href="#documents">Documents</a
           ><a href="#khujand">Life in Khujand</a
           ><a class="button button-primary nav-cta" href="#contact"
-            >Get in touch
-            <svg class="icon" aria-hidden="true"><use href="#external" /></svg
-          ></a>
+            ><span>Get in touch</span>
+            <span class="nav-cta-arrow" aria-hidden="true"><svg class="icon"><use href="#arrow" /></svg></span>
+          </a>
         </nav>
       </div>
     </header>
@@ -136,11 +137,8 @@
           <div class="hero-world">
             <div class="hero-copy">
               <h1 id="hero-title" aria-label="International Association for the Exchange of Students for Technical Experience">
-                <span class="hero-line" aria-hidden="true">International</span>
-                <span class="hero-line" aria-hidden="true">Association</span>
-                <span class="hero-line hero-accent" aria-hidden="true"><em>for the Exchange</em></span>
-                <span class="hero-line hero-accent" aria-hidden="true"><em>of Students for</em></span>
-                <span class="hero-line hero-accent" aria-hidden="true"><em>Technical Experience</em></span>
+                <span class="hero-line" aria-hidden="true">International Association</span>
+                <span class="hero-line hero-accent" aria-hidden="true"><em>for the Exchange of Students for Technical Experience</em></span>
               </h1>
               <div class="hero-intro">
                 <div class="hero-actions">
@@ -170,10 +168,13 @@
       >
         <div class="container about-grid">
           <div>
-            <h2 id="about-title">Based in Khujand.<br /><em>Connected to the world.</em></h2>
+            <h2 id="about-title"><span class="heading-line">Based in Khujand.</span> <em class="heading-line">Connected to the world.</em></h2>
           </div>
           <div class="about-copy">
-            <p>IAESTE arranges practical training in technical and natural science fields and promotes cultural exchange. Contact IAESTE Khujand about internships and the national application process.</p>
+            <div class="about-description">
+              <p>IAESTE arranges practical training in technical and natural science fields and promotes cultural exchange.</p>
+              <p>Contact IAESTE Khujand about internships and the national application process.</p>
+            </div>
             <a class="text-link" href="#contact"
               >Contact the committee
               <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
@@ -186,7 +187,7 @@
               href="https://www.iaeste.tj/#about"
               target="_blank"
               rel="noopener noreferrer"
-              >National figures ↗</a
+              >National figures &#8599;</a
             >
           </div>
           <div class="impact-stat">
@@ -245,9 +246,9 @@
         <div class="container">
           <div class="section-heading">
             <div>
-              <h2 id="internships-title">Choose your<br /><em>way into the world.</em></h2>
+              <h2 id="internships-title">Choose your <em>way into the world.</em></h2>
             </div>
-            <p class="section-description">Technical and natural science placements.<br />Abroad or from home.</p>
+            <p class="section-description">Technical and natural science placements. Abroad or from home.</p>
           </div>
           <div
             class="programme-tabs"
@@ -296,7 +297,7 @@
             </div>
             <div class="programme-copy">
               <p class="programme-kicker">01 / Work abroad</p>
-              <h3>On-site.<br /><em>Out in the world.</em></h3>
+              <h3>On-site. <em>Out in the world.</em></h3>
               <p>
                 Join a workplace or research team abroad. Apply your studies to real projects and experience life in another country.
               </p>
@@ -351,7 +352,7 @@
             </div>
             <div class="programme-copy">
               <p class="programme-kicker">02 / Work remotely</p>
-              <h3>Remote.<br /><em>Still connected.</em></h3>
+              <h3>Remote. <em>Still connected.</em></h3>
               <p>
                 Work with an international organisation from home. Build professional experience and remote collaboration skills.
               </p>
@@ -395,7 +396,7 @@
               Need help choosing a placement?
             </p>
             <a class="text-link" href="#contact"
-              >Talk to us <span aria-hidden="true">↗</span></a
+              >Talk to us <span aria-hidden="true">&#8599;</span></a
             >
           </div>
         </div>
@@ -408,7 +409,7 @@
         <div class="container apply-layout">
           <div class="section-heading">
             <div>
-              <h2 id="apply-title">How to<br /><em>apply.</em></h2>
+              <h2 id="apply-title">How to <em>apply.</em></h2>
             </div>
             <a class="text-link" href="#documents"
               >View nomination forms
@@ -471,14 +472,14 @@
             <ol class="timeline">
               <li>
                 <span class="timeline-month">September</span>
-                <h4>CV / résumé selection</h4>
+                <h4>CV / r&eacute;sum&eacute; selection</h4>
               </li>
               <li>
                 <span class="timeline-month">October</span>
                 <h4>English language test</h4>
               </li>
               <li>
-                <span class="timeline-month">January – February</span>
+                <span class="timeline-month">January &ndash; February</span>
                 <h4>Selection for foreign practice</h4>
               </li>
               <li>
@@ -492,7 +493,7 @@
               target="_blank"
               rel="noopener noreferrer"
               >National application guidance
-              <span aria-hidden="true">↗</span></a
+              <span aria-hidden="true">&#8599;</span></a
             >
           </div>
         </div>
@@ -505,7 +506,7 @@
         <div class="container">
           <div class="documents-header">
             <div>
-              <h2 id="documents-title">Nomination<br /><em>forms.</em></h2>
+              <h2 id="documents-title">Nomination <em>forms.</em></h2>
             </div>
             <div class="documents-guidance">
               <p>Prepare these 12 documents for your nomination, using the languages listed below.</p>
@@ -514,13 +515,13 @@
           <div class="documents-table-wrap">
             <table class="documents-table">
               <caption class="sr-only">Nomination documents and official forms published by IAESTE Tajikistan</caption>
-              <thead><tr><th scope="col">№</th><th scope="col">Documents</th><th scope="col">Language</th><th scope="col">Download</th></tr></thead>
+              <thead><tr><th scope="col">&#8470;</th><th scope="col">Documents</th><th scope="col">Language</th><th scope="col">Download</th></tr></thead>
               <tbody>
                 <tr>
                   <td class="document-number">01</td>
-                  <th scope="row" class="document-description"><strong>IAESTE — Student nomination form</strong></th>
+                  <th scope="row" class="document-description"><strong>IAESTE &mdash; Student nomination form</strong></th>
                   <td class="document-language" data-label="Language">English</td>
-                  <td class="document-download-cell"><a class="document-download" href="assets/documents/1-IAESTE-student-nomination-form.docx" download aria-label="Download IAESTE — Student nomination form (DOCX)">Download <span class="document-format">DOCX</span><svg class="icon" aria-hidden="true"><use href="#download" /></svg></a></td>
+                  <td class="document-download-cell"><a class="document-download" href="assets/documents/1-IAESTE-student-nomination-form.docx" download aria-label="Download IAESTE &mdash; Student nomination form (DOCX)">Download <span class="document-format">DOCX</span><svg class="icon" aria-hidden="true"><use href="#download" /></svg></a></td>
                 </tr>
                 <tr>
                   <td class="document-number">02</td>
@@ -530,21 +531,21 @@
                 </tr>
                 <tr>
                   <td class="document-number">03</td>
-                  <th scope="row" class="document-description"><strong>Detailed CV / résumé</strong><small>Provide as much relevant detail as possible.</small></th>
+                  <th scope="row" class="document-description"><strong>Detailed CV / r&eacute;sum&eacute;</strong><small>Provide as much relevant detail as possible.</small></th>
                   <td class="document-language" data-label="Language">English</td>
                   <td class="document-download-cell"><span class="document-prepare">Prepare yourself</span></td>
                 </tr>
                 <tr>
                   <td class="document-number">04</td>
-                  <th scope="row" class="document-description"><strong>IAESTE — List of previous practical training form</strong></th>
+                  <th scope="row" class="document-description"><strong>IAESTE &mdash; List of previous practical training form</strong></th>
                   <td class="document-language" data-label="Language">English</td>
-                  <td class="document-download-cell"><a class="document-download" href="assets/documents/6-IAESTE-list-of-previous-practical-training-form.docx" download aria-label="Download IAESTE — List of previous practical training form (DOCX)">Download <span class="document-format">DOCX</span><svg class="icon" aria-hidden="true"><use href="#download" /></svg></a></td>
+                  <td class="document-download-cell"><a class="document-download" href="assets/documents/6-IAESTE-list-of-previous-practical-training-form.docx" download aria-label="Download IAESTE &mdash; List of previous practical training form (DOCX)">Download <span class="document-format">DOCX</span><svg class="icon" aria-hidden="true"><use href="#download" /></svg></a></td>
                 </tr>
                 <tr>
                   <td class="document-number">05</td>
-                  <th scope="row" class="document-description"><strong>IAESTE — List of subjects form</strong></th>
+                  <th scope="row" class="document-description"><strong>IAESTE &mdash; List of subjects form</strong></th>
                   <td class="document-language" data-label="Language">English</td>
-                  <td class="document-download-cell"><a class="document-download" href="assets/documents/5-IAESTE-list-of-subjects-form.docx" download aria-label="Download IAESTE — List of subjects form (DOCX)">Download <span class="document-format">DOCX</span><svg class="icon" aria-hidden="true"><use href="#download" /></svg></a></td>
+                  <td class="document-download-cell"><a class="document-download" href="assets/documents/5-IAESTE-list-of-subjects-form.docx" download aria-label="Download IAESTE &mdash; List of subjects form (DOCX)">Download <span class="document-format">DOCX</span><svg class="icon" aria-hidden="true"><use href="#download" /></svg></a></td>
                 </tr>
                 <tr>
                   <td class="document-number">06</td>
@@ -554,26 +555,26 @@
                 </tr>
                 <tr>
                   <td class="document-number">07</td>
-                  <th scope="row" class="document-description"><strong>IAESTE — Language certificate</strong></th>
+                  <th scope="row" class="document-description"><strong>IAESTE &mdash; Language certificate</strong></th>
                   <td class="document-language" data-label="Language">English or German</td>
-                  <td class="document-download-cell"><a class="document-download" href="assets/documents/8-IAESTE-language-certificate-form.docx" download aria-label="Download IAESTE — Language certificate (DOCX)">Download <span class="document-format">DOCX</span><svg class="icon" aria-hidden="true"><use href="#download" /></svg></a></td>
+                  <td class="document-download-cell"><a class="document-download" href="assets/documents/8-IAESTE-language-certificate-form.docx" download aria-label="Download IAESTE &mdash; Language certificate (DOCX)">Download <span class="document-format">DOCX</span><svg class="icon" aria-hidden="true"><use href="#download" /></svg></a></td>
                 </tr>
                 <tr>
                   <td class="document-number">08</td>
-                  <th scope="row" class="document-description"><strong>IAESTE — Medical / emergency form</strong></th>
+                  <th scope="row" class="document-description"><strong>IAESTE &mdash; Medical / emergency form</strong></th>
                   <td class="document-language" data-label="Language">English or German</td>
-                  <td class="document-download-cell"><a class="document-download" href="assets/documents/9-IAESTE-medical-form.docx" download aria-label="Download IAESTE — Medical / emergency form (DOCX)">Download <span class="document-format">DOCX</span><svg class="icon" aria-hidden="true"><use href="#download" /></svg></a></td>
+                  <td class="document-download-cell"><a class="document-download" href="assets/documents/9-IAESTE-medical-form.docx" download aria-label="Download IAESTE &mdash; Medical / emergency form (DOCX)">Download <span class="document-format">DOCX</span><svg class="icon" aria-hidden="true"><use href="#download" /></svg></a></td>
                 </tr>
                 <tr>
                   <td class="document-number">09</td>
-                  <th scope="row" class="document-description"><strong>IAESTE — Liability policy</strong><small>The national website’s download is currently unavailable.</small></th>
+                  <th scope="row" class="document-description"><strong>IAESTE &mdash; Liability policy</strong><small>The national website&rsquo;s download is currently unavailable.</small></th>
                   <td class="document-language" data-label="Language">English</td>
-                  <td class="document-download-cell"><a class="document-request" href="#contact" aria-label="Request the IAESTE liability policy from the committee">Request form <span aria-hidden="true">↗</span></a></td>
+                  <td class="document-download-cell"><a class="document-request" href="#contact" aria-label="Request the IAESTE liability policy from the committee">Request form <span aria-hidden="true">&#8599;</span></a></td>
                 </tr>
                 <tr>
                   <td class="document-number">10</td>
                   <th scope="row" class="document-description"><strong>One passport-size photograph</strong></th>
-                  <td class="document-language" data-label="Language">—</td>
+                  <td class="document-language" data-label="Language">&mdash;</td>
                   <td class="document-download-cell"><span class="document-prepare">Prepare yourself</span></td>
                 </tr>
                 <tr>
@@ -603,32 +604,15 @@
           <div class="city-heading"><span>Khujand, Tajikistan</span></div>
           <div class="city-scene">
             <figure class="city-visual"><img src="assets/khujand-river.jpg" alt="The Syr Darya river and riverside in Khujand, Tajikistan" width="1344" height="756" loading="lazy" /><figcaption class="sr-only">The Syr Darya riverside in Khujand.</figcaption></figure>
-            <div class="city-copy"><h2 id="city-title">Life in<br /><em>Khujand.</em></h2><p>Riverside walks. Local markets.<br />A place to call home during your exchange.</p></div>
-            <a class="city-programme" href="https://www.iaeste.tj/media/CP-2024_LC-Khujand.pdf" target="_blank" rel="noopener noreferrer"><span>Cultural programme<small>2024 archive · PDF</small></span><span class="round-arrow"><svg class="icon" aria-hidden="true"><use href="#download" /></svg></span></a>
+            <div class="city-copy"><h2 id="city-title">Life in <em>Khujand.</em></h2><p>Riverside walks. Local markets. A place to call home during your exchange.</p></div>
+            <a class="city-programme" href="https://www.iaeste.tj/media/CP-2024_LC-Khujand.pdf" target="_blank" rel="noopener noreferrer"><span>Cultural programme<small>2024 archive &middot; PDF</small></span><span class="round-arrow"><svg class="icon" aria-hidden="true"><use href="#download" /></svg></span></a>
           </div>
           <ul class="city-points">
-            <li><div><h3>Local culture</h3><p>Panjshanbe market, Khujand’s museums and the Arbob cultural palace.</p></div></li>
+            <li><div><h3>Local culture</h3><p>Panjshanbe market, Khujand&rsquo;s museums and the Arbob cultural palace.</p></div></li>
             <li><div><h3>Beyond the city</h3><p>Kayrakkum lake, mountain excursions and trips with fellow students.</p></div></li>
             <li><div><h3>The community</h3><p>Meet fellow interns and share national food at IAESTE Cooking Day.</p></div></li>
           </ul>
           <p class="city-note">The linked programme is the 2024 archive. Ask the committee about current activities.</p>
-        </div>
-        <div class="container photo-credit">
-            Riverside photograph:
-          <a
-            href="https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F_%D0%B2_%D0%A5%D1%83%D0%B4%D0%B6%D0%B0%D0%BD%D0%B4%D0%B5.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Neu holland</a
-          >
-          ·
-          <a
-            href="https://creativecommons.org/licenses/by-sa/4.0/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >CC BY-SA 4.0</a
-          >
-          · Cropped for layout.
         </div>
       </section>
       <section
@@ -657,7 +641,7 @@
                 loading="lazy"
               /></div><span
                 >Mountain lake excursion
-                <span aria-hidden="true">↗</span></span
+                <span aria-hidden="true">&#8599;</span></span
               ></a
             >
             <a
@@ -673,7 +657,7 @@
                 loading="lazy"
               /></div><span
                 >A shared meal
-                <span aria-hidden="true">↗</span></span
+                <span aria-hidden="true">&#8599;</span></span
               ></a
             >
             <a
@@ -689,14 +673,14 @@
                 loading="lazy"
               /></div><span
                 >Volleyball with exchange students
-                <span aria-hidden="true">↗</span></span
+                <span aria-hidden="true">&#8599;</span></span
               ></a
             >
             <a class="gallery-item" href="assets/gallery-community.webp"
               data-caption="Waterfall excursion">
               <div class="gallery-image"><img src="assets/gallery-community.webp" alt="IAESTE participants beside a waterfall in Tajikistan"
                 width="800" height="450" loading="lazy" /></div>
-              <span>Waterfall excursion<span aria-hidden="true">↗</span></span>
+              <span>Waterfall excursion<span aria-hidden="true">&#8599;</span></span>
             </a>
           </div>
         </div>
@@ -737,11 +721,11 @@
                 />
               </div>
               <div class="news-copy">
-                <span class="tag">National news · Archive</span>
+                <span class="tag">National news &middot; Archive</span>
                 <h3>30 years of IAESTE Tajikistan</h3>
                 <span class="text-link"
                   >Read update
-                  <span aria-hidden="true">↗</span></span
+                  <span aria-hidden="true">&#8599;</span></span
                 >
               </div></a
             >
@@ -761,11 +745,11 @@
                 />
               </div>
               <div class="news-copy">
-                <span class="tag">National news · Archive</span>
+                <span class="tag">National news &middot; Archive</span>
                 <h3>75th IAESTE Annual Conference</h3>
                 <span class="text-link"
                   >Read update
-                  <span aria-hidden="true">↗</span></span
+                  <span aria-hidden="true">&#8599;</span></span
                 >
               </div></a
             >
@@ -785,7 +769,7 @@
                 />
               </div>
               <div class="news-copy">
-                <span class="tag">Khujand · 2024 archive</span>
+                <span class="tag">Khujand &middot; 2024 archive</span>
                 <h3>Khujand cultural programme</h3>
                 <span class="text-link"
                   >Read the programme
@@ -889,7 +873,7 @@
       <section class="section faq-section" id="faq" aria-labelledby="faq-title">
         <div class="container faq-grid">
           <div>
-            <h2 id="faq-title">Before<br /><em>you go.</em></h2>
+            <h2 id="faq-title">Before <em>you go.</em></h2>
             <a class="text-link" href="#contact"
               >Ask IAESTE Khujand
               <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
@@ -971,7 +955,7 @@
             </details>
             <details>
               <summary>
-                I’m coming to Khujand. Who should I contact?<span
+                I&rsquo;m coming to Khujand. Who should I contact?<span
                   aria-hidden="true"
                   >+</span
                 >
@@ -997,7 +981,7 @@
         <div class="container contact-grid">
           <div class="contact-copy">
             <p class="eyebrow">Contact IAESTE Khujand</p>
-            <h2 id="contact-title">Let’s talk<br /><em>internships.</em></h2>
+            <h2 id="contact-title">Let&rsquo;s talk <em>internships.</em></h2>
             <p>
               Talk to your local committee about placements, applications or your arrival in Khujand.
             </p>
@@ -1008,31 +992,45 @@
               <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
             ></a>
           </div>
-          <div class="contact-details">
-            <a href="tel:+992927735005"
-              ><span class="contact-icon"
-                ><svg class="icon" aria-hidden="true">
-                  <use href="#phone" /></svg></span
-              ><span
-                ><small>Khujand local committee</small
-                ><strong>+992 92 773 50 05</strong></span
-              ><svg class="icon" aria-hidden="true">
-                <use href="#external" /></svg></a
-            ><a
-              href="mailto:tajikistan@iaeste.org?subject=Enquiry%20for%20IAESTE%20Khujand"
-              ><span class="contact-icon"
-                ><svg class="icon" aria-hidden="true">
-                  <use href="#mail" /></svg></span
-              ><span
-                ><small>National committee email</small
-                ><strong>tajikistan@iaeste.org</strong></span
-              ><svg class="icon" aria-hidden="true">
-                <use href="#external" /></svg
-            ></a>
-            <div class="contact-location">
-              <svg class="icon" aria-hidden="true"><use href="#pin" /></svg>
-              Khujand, Tajikistan
+          <dl class="contact-details">
+            <div>
+              <dt>Phone</dt>
+              <dd><a href="tel:+992927735005">+992 92 773 50 05</a></dd>
+              <dd class="contact-note">Khujand local committee</dd>
             </div>
+            <div>
+              <dt>Email</dt>
+              <dd>
+                <a href="mailto:tajikistan@iaeste.org?subject=Enquiry%20for%20IAESTE%20Khujand"
+                  >tajikistan@iaeste.org</a
+                >
+              </dd>
+              <dd class="contact-note">National committee</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&amp;destination=7JHH%2B3X6%20Khujand%2C%20Tajikistan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Khujand, Tajikistan</a
+                >
+              </dd>
+            </div>
+          </dl>
+          <div class="contact-map">
+            <iframe
+              title="Map of Khujand, Tajikistan, marking Plus Code 7JHH+3X6"
+              src="https://www.google.com/maps?ll=40.27766,69.62989&amp;z=17&amp;hl=en&amp;output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+            <a class="map-open" href="https://www.google.com/maps/search/?api=1&amp;query=40.27766%2C69.62989" target="_blank" rel="noopener noreferrer">
+              Open in Maps <svg class="icon" aria-hidden="true"><use href="#external" /></svg>
+            </a>
+            <svg class="icon map-pin" aria-hidden="true"><use href="#pin" /></svg>
           </div>
         </div>
       </section>
@@ -1056,18 +1054,18 @@
               target="_blank"
               rel="noopener noreferrer"
               aria-label="IAESTE Khujand on Instagram"
-              >Instagram ↗</a
+              >Instagram &#8599;</a
             >
             <a
               href="https://www.facebook.com/Iaeste-Tajikistan-107307092183086/"
               target="_blank"
               rel="noopener noreferrer"
-              >Facebook ↗</a
+              >Facebook &#8599;</a
             ><a
               href="https://www.iaeste.tj/"
               target="_blank"
               rel="noopener noreferrer"
-              >IAESTE Tajikistan ↗</a
+              >IAESTE Tajikistan &#8599;</a
             >
           </div>
         </div>
@@ -1094,9 +1092,9 @@
       </div>
       <div class="container footer-bottom">
         <span
-          >© <span id="year">2026</span> IAESTE Khujand. Part of IAESTE
+          >&copy; <span id="year">2026</span> IAESTE Khujand. Part of IAESTE
           Tajikistan.</span
-        ><a href="#top" class="back-to-top">Back to top <span aria-hidden="true">↑</span></a>
+        ><a href="#top" class="back-to-top">Back to top <span aria-hidden="true">&#8593;</span></a>
       </div>
     </footer>
     <dialog
@@ -1106,7 +1104,7 @@
     >
       <div class="lightbox-inner">
         <button class="lightbox-close" type="button" aria-label="Close photo">
-          ×</button
+          &times;</button
         ><img id="lightbox-image" alt="" />
         <div class="lightbox-bottom">
           <button
