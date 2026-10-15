@@ -1,6 +1,7 @@
 "use strict";
 
 const mobileLayout = window.matchMedia("(max-width: 960px)");
+const phoneLayout = window.matchMedia("(max-width: 700px)");
 const header = document.querySelector(".site-header");
 const menuButton = document.querySelector(".menu-button");
 const nav = document.querySelector(".site-nav");
@@ -437,15 +438,18 @@ function updateScroll() {
     // Separate enter/exit thresholds prevent header oscillation.
     const compact = header.classList.contains("is-scrolled") ? scrollY > 24 : scrollY > 64;
     header.classList.toggle("is-scrolled", compact);
-    const keepVisible = scrollY < 200 || reducedMotion.matches ||
+    const phone = phoneLayout.matches;
+    // On phones, reduced motion removes animation while retaining scroll visibility.
+    const keepVisible = scrollY < (phone ? header.offsetHeight : 200) ||
+      (reducedMotion.matches && !phone) ||
       header.classList.contains("menu-open") || header.querySelector(":focus-visible") ||
       performance.now() < navigationHoldUntil;
     if (keepVisible) {
       header.classList.remove("is-hidden");
       directionDistance = 0;
-    } else if (scrollDirection < 0 && directionDistance >= 12) {
+    } else if (scrollDirection < 0 && directionDistance >= (phone ? 8 : 12)) {
       header.classList.remove("is-hidden");
-    } else if (scrollDirection > 0 && directionDistance >= 48) {
+    } else if (scrollDirection > 0 && directionDistance >= (phone ? 24 : 48)) {
       header.classList.add("is-hidden");
     }
   }

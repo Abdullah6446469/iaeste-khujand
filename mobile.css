@@ -15,14 +15,16 @@
   .button { min-height: 52px; font-size: .9375rem; font-weight: 600; box-shadow: none; }
 
   .site-header,
-  .site-header.is-scrolled,
-  .site-header.is-hidden {
+  .site-header.is-scrolled {
     transform: none;
     background: var(--surface-glass);
     pointer-events: auto;
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }
+  .site-header.is-hidden { transform: translateY(-100%); pointer-events: none; }
+  .site-header.menu-open,
+  .site-header:has(:focus-visible) { transform: none; pointer-events: auto; }
   .header-inner,
   .site-header.is-scrolled .header-inner {
     width: calc(100% - var(--gutter) * 2);
@@ -196,7 +198,8 @@
 
   .contact-section { padding-block: 56px; }
   .contact-grid { gap: 24px; }
-  .contact-copy > .button { justify-content: space-between; width: 100%; margin-top: 20px; padding-inline: 18px; }
+  .contact-copy .email-actions { margin-top: 20px; }
+  .contact-copy .email-actions .button { justify-content: space-between; width: 100%; padding-inline: 18px; }
   .contact-details { border: 0; display: grid; gap: 10px; }
   .contact-details > div { gap: 2px; padding: 16px 18px; border: 0; border-radius: 14px; background: var(--surface-soft); }
   .contact-details dt { grid-row: auto; font-size: .75rem; letter-spacing: .04em; }

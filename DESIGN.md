@@ -20,6 +20,7 @@
 - Content width is at most 1320 px. Desktop gutters are 56 px, reducing to 36 px below 1150 px. Phone gutters are 20 px, or 16 px at 380 px and below.
 - Navigation collapses at 960 px. Phone overrides apply at 700 px and below; the globe is omitted below 768 px.
 - Keep the header's layout space constant when it compacts or hides.
+- On phones, hide the header after 24 px of deliberate downward scrolling beyond the header's height and reveal it after 8 px upward. Keep it visible at the top, with an open menu or keyboard focus, and during menu-link navigation. Reduced motion removes the animation while retaining this behavior. Preserve the existing desktop thresholds and reduced-motion behavior.
 - Separate sections with spacing and surface colours. Avoid decorative divider lines.
 - Use 24/20/12 px radii for large/medium/small surfaces; large/medium reduce to 20/16 px on phones. Clip photos at their wrappers and keep keyboard outlines visible.
 - On phones, place the Khujand heading and programme link outside the photo collage. Use the map link instead of an embedded map.

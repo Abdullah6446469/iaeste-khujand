@@ -44,9 +44,10 @@
       rel="stylesheet"
     />
     <link rel="preload" as="fetch" href="assets/globe-land.json" crossorigin media="(min-width: 768px)" />
-    <link rel="stylesheet" href="styles.css?v=60" />
-    <link rel="stylesheet" href="mobile.css?v=6" media="(max-width: 700px)" />
-    <script src="main.js?v=29" defer></script>
+    <link rel="stylesheet" href="styles.css?v=61" />
+    <link rel="stylesheet" href="mobile.css?v=8" media="(max-width: 700px)" />
+    <script src="email.js?v=1" defer></script>
+    <script src="main.js?v=30" defer></script>
     <script src="globe.js?v=7" defer></script>
   </head>
   <body id="top">
@@ -404,12 +405,17 @@
             <p class="application-programme">IAESTE Tajikistan international programme</p>
             <h3 id="application-notice-title">Summer 2027 internships</h3>
             <div class="application-deadline"><span>CV deadline</span><time datetime="2026-10-31">31 October 2026</time></div>
-            <p>To apply for an international technical internship, prepare your CV in English and send it to <a href="mailto:iaeste@inbox.ru?subject=IAESTE%20Tajikistan%20%E2%80%94%20Summer%202027%20application">iaeste@inbox.ru</a>.</p>
+            <p>To apply for an international technical internship, prepare your CV in English and send it to <a id="application-email" href="mailto:iaeste@inbox.ru?subject=IAESTE%20Tajikistan%20%E2%80%94%20Summer%202027%20application">iaeste@inbox.ru</a>.</p>
             <ul class="application-requirements">
               <li>Internships are paid. The amount depends on the internship offer.</li>
               <li>A good command of English or German is required.</li>
             </ul>
-            <a class="button button-primary" href="mailto:iaeste@inbox.ru?subject=IAESTE%20Tajikistan%20%E2%80%94%20Summer%202027%20application">Email your CV <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg></a>
+            <div class="email-actions">
+              <a class="button button-primary" href="mailto:iaeste@inbox.ru?subject=IAESTE%20Tajikistan%20%E2%80%94%20Summer%202027%20application">Email your CV <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg></a>
+              <button class="button button-outline" type="button" data-copy-email="application-email" aria-label="Copy application email address" aria-describedby="application-email-status" hidden>Copy email address</button>
+            </div>
+            <p class="email-help">Opens your email app. Attach your CV before sending. If nothing opens, use the address above in your usual email service.</p>
+            <p class="email-status" id="application-email-status" role="status" aria-atomic="true"></p>
           </aside>
           <ol class="process-grid">
             <li>
@@ -544,7 +550,7 @@
                   <td class="document-number">09</td>
                   <th scope="row" class="document-description"><strong>IAESTE &mdash; Liability policy</strong><small>The national website&rsquo;s download is currently unavailable.</small></th>
                   <td class="document-language" data-label="Language">English</td>
-                  <td class="document-download-cell"><a class="document-request" href="#contact" aria-label="Request the IAESTE liability policy from the committee">Request form <span aria-hidden="true">&#8599;</span></a></td>
+                  <td class="document-download-cell"><a class="document-request" href="mailto:tajikistan@iaeste.org?subject=IAESTE%20Khujand%20%E2%80%94%20Liability%20policy%20request" aria-label="Email the committee to request the IAESTE liability policy">Request form <span aria-hidden="true">&#8599;</span></a></td>
                 </tr>
                 <tr>
                   <td class="document-number">10</td>
@@ -865,7 +871,7 @@
               <div class="faq-answer">
                 <p>
                   For summer 2027 internships, send your CV in English to
-                  <a href="mailto:iaeste@inbox.ru">iaeste@inbox.ru</a>
+                  <a href="mailto:iaeste@inbox.ru?subject=IAESTE%20Tajikistan%20%E2%80%94%20Summer%202027%20application">iaeste@inbox.ru</a>
                   by 31 October 2026. A good command of English or German is
                   required. <a href="#apply">See the application notice</a>
                   and confirm the next selection steps with the committee.
@@ -931,12 +937,17 @@
         <div class="container contact-grid">
           <div class="contact-copy">
             <h2 id="contact-title">Contact <em>IAESTE Khujand.</em></h2>
-            <a
-              class="button button-primary"
-              href="mailto:tajikistan@iaeste.org?subject=Enquiry%20for%20IAESTE%20Khujand"
-              >Email the committee
-              <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
-            ></a>
+            <div class="email-actions">
+              <a
+                class="button button-primary"
+                href="mailto:tajikistan@iaeste.org?subject=Enquiry%20for%20IAESTE%20Khujand"
+                >Email the committee
+                <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+              ></a>
+              <button class="button button-outline" type="button" data-copy-email="committee-email" aria-label="Copy committee email address" aria-describedby="committee-email-status" hidden>Copy email address</button>
+            </div>
+            <p class="email-help">Opens your email app. If nothing opens, use <a href="mailto:tajikistan@iaeste.org?subject=Enquiry%20for%20IAESTE%20Khujand">tajikistan@iaeste.org</a> in your usual email service.</p>
+            <p class="email-status" id="committee-email-status" role="status" aria-atomic="true"></p>
           </div>
           <dl class="contact-details">
             <div>
@@ -947,7 +958,7 @@
             <div>
               <dt>Email</dt>
               <dd>
-                <a href="mailto:tajikistan@iaeste.org?subject=Enquiry%20for%20IAESTE%20Khujand"
+                <a id="committee-email" href="mailto:tajikistan@iaeste.org?subject=Enquiry%20for%20IAESTE%20Khujand"
                   >tajikistan@iaeste.org</a
                 >
               </dd>

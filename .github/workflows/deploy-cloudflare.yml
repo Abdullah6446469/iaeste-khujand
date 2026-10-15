@@ -34,11 +34,13 @@ jobs:
         run: |
           node --check main.js
           node --check globe.js
+          node --check email.js
+          node --test tests/contact.test.mjs
 
       - name: Prepare the public website files
         run: |
           mkdir -p "$RUNNER_TEMP/iaeste-khujand"
-          cp index.html styles.css mobile.css main.js globe.js robots.txt sitemap.xml "$RUNNER_TEMP/iaeste-khujand/"
+          cp index.html styles.css mobile.css main.js globe.js email.js robots.txt sitemap.xml "$RUNNER_TEMP/iaeste-khujand/"
           cp -R assets "$RUNNER_TEMP/iaeste-khujand/assets"
 
       - name: Deploy to Cloudflare Pages

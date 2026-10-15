@@ -20,6 +20,7 @@ Open [127.0.0.1:4173](http://127.0.0.1:4173/).
 | `styles.css` | Colour and typography tokens, components, responsive styles and motion |
 | `mobile.css` | Overrides at widths up to 700 px |
 | `main.js` | Navigation, tabs, gallery, partner strip and content reveals |
+| `email.js` | Email address copying and accessible success/failure feedback |
 | `globe.js` | Canvas globe and controls; active from 768 px |
 | `DESIGN.md` | Design conventions |
 | `assets/` | Images, logos, geographic data and downloadable forms |
@@ -42,9 +43,9 @@ The production website is `https://iaeste-khujand.pages.dev/` on Cloudflare Page
 
 The Pages project uses Direct Upload with production branch `main`. GitHub Actions deploys the site automatically when changes are pushed to `main`; the workflow can also be started manually from the repository's Actions tab.
 
-The workflow in `.github/workflows/deploy-cloudflare.yml` checks JavaScript syntax, stages only the public website files, and publishes them with Wrangler. It requires repository Actions secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`. The deployment token needs only Cloudflare Pages Edit permission for the account hosting the site.
+The workflow in `.github/workflows/deploy-cloudflare.yml` checks JavaScript syntax and contact behavior, stages only the public website files, and publishes them with Wrangler. It requires repository Actions secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`. The deployment token needs only Cloudflare Pages Edit permission for the account hosting the site.
 
-For a manual fallback, upload `index.html`, `styles.css`, `mobile.css`, `main.js`, `globe.js`, `robots.txt`, `sitemap.xml`, and the complete `assets/` folder in Cloudflare's Workers & Pages dashboard. Keep `index.html` at the top level of the upload. No build step is needed.
+For a manual fallback, upload `index.html`, `styles.css`, `mobile.css`, `main.js`, `globe.js`, `email.js`, `robots.txt`, `sitemap.xml`, and the complete `assets/` folder in Cloudflare's Workers & Pages dashboard. Keep `index.html` at the top level of the upload. No build step is needed.
 
 Include referenced assets when committing changes. If the production domain changes, update the canonical URL, Open Graph URLs, and `WebSite` structured data in `index.html`, plus the URLs in `robots.txt` and `sitemap.xml`.
 
@@ -53,8 +54,14 @@ Include referenced assets when committing changes. If the production domain chan
 ```sh
 node --check main.js
 node --check globe.js
+node --check email.js
+node --test tests/contact.test.mjs
 git diff --check
 ```
+
+Email actions use native `mailto:` links and open the visitor's configured email app with the recipient and subject. Visitors attach their CV and send from that app; the website does not send or store messages. If no email app opens, the visible addresses and Copy email address buttons let visitors compose in their usual email service. If clipboard access is unavailable or denied, the page displays the address for manual copying. Phone links use `tel:` and require a calling app.
+
+The contact checks run before every deployment and guard email recipients/subjects, phone numbers, section destinations, and clipboard success/failure behavior. They do not verify mailbox ownership, message delivery, or committee responses; those require a real message and recipient confirmation.
 
 ## Image sources and licences
 

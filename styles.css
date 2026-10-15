@@ -207,7 +207,14 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .application-notice p > a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .application-requirements { display: grid; gap: 10px; margin: 20px 0; padding-left: 20px; color: var(--muted); font-size: var(--text-small); line-height: 1.75; }
 .application-requirements li::marker { color: var(--accent); }
-.application-notice > .button { margin-top: 24px; gap: 24px; font-size: var(--text-small); }
+.application-notice .email-actions { margin-top: 24px; }
+.email-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.email-actions .button { gap: 24px; font-size: var(--text-small); }
+.email-help { max-width: 48ch; margin-top: 16px; color: var(--muted); font-size: var(--text-small); line-height: 1.7; }
+.email-help a { overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 3px; }
+.email-status { min-height: 1.7em; margin-top: 8px; color: var(--accent-dark); font-size: var(--text-small); overflow-wrap: anywhere; }
+.application-notice > .email-help, .application-notice > .email-status { font-size: var(--text-small); }
+.application-notice > .email-status { color: var(--accent-dark); }
 .application-notice :focus-visible { outline-color: var(--accent); }
 .process-grid { display: grid; grid-column: 2; list-style: none; margin: 0; padding: 0; }
 .process-grid > li { position: relative; display: grid; grid-template-columns: 90px minmax(0, 1fr); align-items: center; gap: 12px 32px; min-height: 164px; padding: 28px 0; }
@@ -351,7 +358,7 @@ h3 { font-size: 1.375rem; line-height: 1.35; letter-spacing: -.015em; }
 .contact-section { padding-block: 96px; background: var(--tint); }
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: start; gap: 48px 80px; }
 .contact-copy h2 { max-inline-size: 19ch; color: var(--accent); }
-.contact-copy > .button { margin-top: 28px; }
+.contact-copy .email-actions { margin-top: 28px; }
 .contact-details { margin: 0; border-top: 1px solid #20546426; }
 .contact-details > div { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: baseline; gap: 0 20px; padding-block: 26px; border-bottom: 1px solid #20546426; }
 .contact-details dt { grid-row: 1 / span 2; color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
