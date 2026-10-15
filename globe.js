@@ -15,7 +15,7 @@
   const center = { x: 400, y: 343 };
   const INTRO = 2800; // ms
   const TAIL = 18; // trail segments
-  const CYCLE = 1.3; // Travel (1) plus arrival pause (.3).
+  const CYCLE = 1.3; // Normalized phases: 1 for travel, 0.3 for the arrival pause.
   const RETURN_DELAY = 9000; // idle time before return (ms)
   const FOLLOW_DIRECT = 210; // steering time constant (ms)
   const FOLLOW_RETURN = 420; // return time constant (ms)
@@ -478,7 +478,7 @@
   });
   function endDrag(event) {
     if (dragging && event && event.type === "pointerup" && event.timeStamp - dragging.moved < 90) {
-      // Ignore stale pointer movement when releasing momentum.
+      // Apply release momentum only after recent pointer movement.
       targetLongitude = longitude + dragging.velocityLon * .21;
       targetLatitude = clamp(latitude + dragging.velocityLat * .21, MIN_LAT, MAX_LAT);
     }
